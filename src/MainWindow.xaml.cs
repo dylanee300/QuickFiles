@@ -60,5 +60,18 @@ namespace QuickFiles
         {
             Refresh refresh = new Refresh(this);
         }
+
+        private void DOCS_CLICK(object sender, RoutedEventArgs e)
+        {
+            inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Documents";
+            BrowseButton_Click(sender, e);
+        }
+
+        private void PIC_CLICK(object sender, RoutedEventArgs e)
+        {
+            // todo: pictures not working for some reason, fix later
+            inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Pictures";
+            BrowseButton_Click(sender, e);
+        }
     }
 }

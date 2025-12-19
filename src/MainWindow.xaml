@@ -196,7 +196,51 @@
             FontWeight="SemiBold"
             Foreground="White"
             Text="📁 Downloads" />
+        </Button>
 
+        <Button
+          Name="docsButton"
+          Width="140"
+          Height="50"
+          Padding="5,5"
+          Background="#4E4E55"
+          BorderThickness="0"
+          Cursor="Hand"
+          Margin="10,0,0,0"
+          Click="DOCS_CLICK"
+          >
+
+          <TextBlock
+            Margin="0,0,0,10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            FontSize="14"
+            FontWeight="SemiBold"
+            Foreground="White"
+            Text="📁 Documents" />
+        </Button>
+
+
+          <Button
+          Name="pictures"
+          Width="140"
+          Height="50"
+          Padding="5,5"
+          Background="#4E4E55"
+          BorderThickness="0"
+          Cursor="Hand"
+          Margin="10,0,0,0"
+          Click="PIC_CLICK"
+          >
+
+          <TextBlock
+            Margin="0,0,0,20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            FontSize="14"
+            FontWeight="SemiBold"
+            Foreground="White"
+            Text="📁 Pictures" />
         </Button>
       </StackPanel>
 
