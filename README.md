@@ -29,7 +29,7 @@
 <ol>
   <li>
     Clone the repository:
-    <pre><code class="language-sh">git clone https://example.com</code></pre>
+    <pre><code class="language-sh">git clone https://github.com/dylanee300/QuickFiles/</code></pre>
   </li>
   <li>
     Open the folder where it was cloned:

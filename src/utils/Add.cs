@@ -19,6 +19,15 @@ namespace QuickFiles
                     return;
                     
                 }
+            } else
+            {
+                if (!Directory.Exists(filePath))
+                {
+                    Directory.CreateDirectory(filePath);
+                    mainWindow.testOutput.Text = "awesome! added dir: " + filePath;
+
+                    return;
+                }
             }
         }
     }

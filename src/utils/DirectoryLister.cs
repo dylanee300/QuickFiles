@@ -1,6 +1,6 @@
 using System;
 using System.IO;
-using System.Windows.Controls;
+using System.Windows;
 using GetModified.Utils;
 using QuickFiles;
 
@@ -27,6 +27,9 @@ namespace GetFoldersInDir.Utils
                      string image = "📁 ";
                      string folderName = Path.GetFileName(dir);
 
+                    // this is apart of my attempt to display the clicked dir
+                    string[] DIRS = Directory.GetDirectories(filePath);
+
                       DateTime LASTMODIFIED = File.GetLastWriteTime(dir);
                         mainWindow.testOutput.Text += image + folderName + " (Last Modified: " + LASTMODIFIED + ")\n";
                     }
@@ -36,6 +39,7 @@ namespace GetFoldersInDir.Utils
                     {
                         string fileName = Path.GetFileName(file);
                         string image = "📄 ";
+
 
                         DateTime LASTMODIFIED = File.GetLastWriteTime(file);
                         mainWindow.testOutput.Text += image + fileName + " (Last Modified: " + LASTMODIFIED + ")\n";
