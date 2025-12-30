@@ -154,17 +154,16 @@
 
       <StackPanel
         Grid.Column="0"
-        HorizontalAlignment="Left"
+        HorizontalAlignment="Center"
         VerticalAlignment="Top"
         Orientation="Horizontal">
         <Button
           Name="DesktopButton"
-          Width="120"
-          Height="50"
-          Margin="0,0,10,0"
-          Padding="5,5"
+            Width="150"
+            Height="54"
+            Margin="0,0,20,0"
+            Padding="5,5"
           Background="#4E4E55"
-          BorderThickness="0"
           Click="DESKTOP_CLICK"
           Cursor="Hand">
 
@@ -172,7 +171,7 @@
             Margin="0,0,0,10"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            FontSize="14"
+            FontSize="18"
             FontWeight="SemiBold"
             Foreground="White"
             Text="📁 Desktop" />
@@ -180,19 +179,17 @@
 
         <Button
           Name="DownloadsButton"
-          Width="140"
-          Height="50"
+          Width="150"
+          Height="54"
           Padding="-3,-3"
           Background="#4E4E55"
-          BorderThickness="0"
-          Click="DOWNLOADS_CLICK"
           Cursor="Hand">
 
           <TextBlock
             Margin="0,0,0,10"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            FontSize="14"
+            FontSize="18"
             FontWeight="SemiBold"
             Foreground="White"
             Text="📁 Downloads" />
@@ -200,12 +197,10 @@
 
         <Button
           Name="docsButton"
-          Width="140"
-          Height="50"
+          Width="150"
           Padding="5,5"
           Background="#4E4E55"
-          BorderThickness="0"
-          Cursor="Hand"
+          Height="54"
           Margin="10,0,0,0"
           Click="DOCS_CLICK"
           >
@@ -214,7 +209,7 @@
             Margin="0,0,0,10"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            FontSize="14"
+            FontSize="18"
             FontWeight="SemiBold"
             Foreground="White"
             Text="📁 Documents" />
@@ -223,21 +218,20 @@
 
           <Button
           Name="pictures"
-          Width="140"
-          Height="50"
+          Width="150"
           Padding="5,5"
-          Background="#4E4E55"
-          BorderThickness="0"
+          Height="54"
           Cursor="Hand"
           Margin="10,0,0,0"
+          Background="#4E4E55"
           Click="PIC_CLICK"
           >
 
           <TextBlock
-            Margin="0,0,0,20"
+            Margin="0,0,0,10"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            FontSize="14"
+            FontSize="18"
             FontWeight="SemiBold"
             Foreground="White"
             Text="📁 Pictures" />

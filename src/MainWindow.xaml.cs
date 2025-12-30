@@ -72,6 +72,9 @@ namespace QuickFiles
             // todo: pictures not working for some reason, fix later
             inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Pictures";
             BrowseButton_Click(sender, e);
+
+            inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "OneDrive\\Pictures";
+            BrowseButton_Click(sender, e);
         }
     }
 }
