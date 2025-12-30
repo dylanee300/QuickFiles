@@ -69,11 +69,10 @@ namespace QuickFiles
 
         private void PIC_CLICK(object sender, RoutedEventArgs e)
         {
-            // todo: pictures not working for some reason, fix later
             inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Pictures";
             BrowseButton_Click(sender, e);
-
-            inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "OneDrive\\Pictures";
+            // actually fixed now lmao
+            inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\OneDrive\\Pictures";
             BrowseButton_Click(sender, e);
         }
     }
