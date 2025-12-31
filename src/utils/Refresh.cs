@@ -14,6 +14,8 @@ namespace QuickFiles
             DesktopBox.Visibility = System.Windows.Visibility.Visible;
             DownloadsButt.Visibility = System.Windows.Visibility.Visible;
 
+            mainWindow.inputFilePathBox.Text = "";
+
             output.Text = "";
         }
     }

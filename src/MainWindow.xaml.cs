@@ -44,10 +44,9 @@ namespace QuickFiles
             BrowseButton_Click(sender, e);
         }
 
-        // tests
         private void TEST_ADD_CLICK(object sender, RoutedEventArgs e)
         {
-            AddFile add = new AddFile(this);
+            add add = new add(this);
         }
 
         private void TEST_DEL_CLICK(object sender, RoutedEventArgs e)

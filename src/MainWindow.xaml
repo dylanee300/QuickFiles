@@ -264,7 +264,7 @@
         Background="Transparent"
         BorderThickness="0"
         Cursor="Hand"
-        FontSize="15"
+        FontSize="18"
         FontWeight="SemiBold"
         Foreground="white"
         IsReadOnly="True"
