@@ -12,18 +12,19 @@
   mc:Ignorable="d">
   <Grid Background="#1C1C1E">
     <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="*" />
-      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
 
-    <Grid Grid.Row="0" Margin="10">
+    <Grid Grid.Row="0"
+        Margin="10">
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="Auto" />
-        <ColumnDefinition Width="Auto" />
-        <ColumnDefinition Width="Auto" />
-        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="Auto"/>
       </Grid.ColumnDefinitions>
 
       <TextBox
@@ -38,7 +39,7 @@
         FontSize="18"
         FontWeight="SemiBold"
         Foreground="White"
-        Text="" />
+        Text=""/>
 
       <Border
         Grid.Column="1"
@@ -57,7 +58,7 @@
           Cursor="Hand"
           FontSize="16"
           FontWeight="Bold"
-          Foreground="White" />
+          Foreground="White"/>
       </Border>
 
 
@@ -95,7 +96,7 @@
           FontSize="16"
           FontWeight="bold"
           Foreground="White"
-          Text="+" />
+          Text="+"/>
 
       </Button>
 
@@ -118,7 +119,7 @@
           FontSize="16"
           FontWeight="bold"
           Foreground="White"
-          Text="-" />
+          Text="-"/>
 
       </Button>
 
@@ -140,18 +141,19 @@
           FontSize="16"
           FontWeight="bold"
           Foreground="White"
-          Text="⟲" />
+          Text="⟲"/>
 
-          
+
 
       </Button>
 
     </Grid>
 
-    <Grid Grid.Row="1" Margin="10">
+    <Grid Grid.Row="1"
+        Margin="10">
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="Auto"/>
       </Grid.ColumnDefinitions>
 
       <StackPanel
@@ -161,10 +163,10 @@
         Orientation="Horizontal">
         <Button
           Name="DesktopButton"
-            Width="150"
-            Height="54"
-            Margin="0,0,20,0"
-            Padding="5,5"
+          Width="150"
+          Height="54"
+          Margin="0,0,20,0"
+          Padding="5,5"
           Background="#4E4E55"
           Click="DESKTOP_CLICK"
           Cursor="Hand">
@@ -176,7 +178,7 @@
             FontSize="18"
             FontWeight="SemiBold"
             Foreground="White"
-            Text="📁 Desktop" />
+            Text="📁 Desktop"/>
         </Button>
 
         <Button
@@ -185,6 +187,7 @@
           Height="54"
           Padding="-3,-3"
           Background="#4E4E55"
+          Click="DOWNLOADS_CLICK"
           Cursor="Hand">
 
           <TextBlock
@@ -194,18 +197,17 @@
             FontSize="18"
             FontWeight="SemiBold"
             Foreground="White"
-            Text="📁 Downloads" />
+            Text="📁 Downloads"/>
         </Button>
 
         <Button
           Name="docsButton"
           Width="150"
-          Padding="5,5"
-          Background="#4E4E55"
           Height="54"
           Margin="10,0,0,0"
-          Click="DOCS_CLICK"
-          >
+          Padding="5,5"
+          Background="#4E4E55"
+          Click="DOCS_CLICK">
 
           <TextBlock
             Margin="0,0,0,10"
@@ -214,19 +216,18 @@
             FontSize="18"
             FontWeight="SemiBold"
             Foreground="White"
-            Text="📁 Documents" />
+            Text="📁 Documents"/>
         </Button>
 
-          <Button
+        <Button
           Name="pictures"
           Width="150"
-          Padding="5,5"
           Height="54"
-          Cursor="Hand"
           Margin="10,0,0,0"
+          Padding="5,5"
           Background="#4E4E55"
           Click="PIC_CLICK"
-          >
+          Cursor="Hand">
 
           <TextBlock
             Margin="0,0,0,10"
@@ -235,22 +236,22 @@
             FontSize="18"
             FontWeight="SemiBold"
             Foreground="White"
-            Text="📁 Pictures" />
+            Text="📁 Pictures"/>
         </Button>
       </StackPanel>
 
       <StackPanel
         Grid.Column="0"
+        Margin="0,70,0,0"
         HorizontalAlignment="Center"
         VerticalAlignment="Top"
-        Orientation="Horizontal"
-        Margin="0,70,0,0">
+        Orientation="Horizontal">
         <Button
           Name="drives"
           Width="150"
+          Height="54"
           Padding="5,5"
           Background="#4E4E55"
-          Height="54"
           Click="DRIVES_CLICK">
           <TextBlock
             Margin="0,0,0,10"
@@ -259,7 +260,7 @@
             FontSize="18"
             FontWeight="SemiBold"
             Foreground="White"
-            Text="[emoji] Drives" />
+            Text="[emoji] Drives"/>
         </Button>
       </StackPanel>
 
@@ -270,14 +271,15 @@
         Height="64"
         Margin="10,0,0,0"
         HorizontalAlignment="Right"
-        VerticalAlignment="Top" />
+        VerticalAlignment="Top"/>
 
     </Grid>
 
-    <Grid Grid.Row="2" Margin="10">
+    <Grid Grid.Row="2"
+        Margin="10">
       <Grid.RowDefinitions>
-        <RowDefinition Height="Auto" />
-        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
 
       <TextBox
@@ -293,7 +295,7 @@
         FontWeight="SemiBold"
         Foreground="white"
         IsReadOnly="True"
-        TextWrapping="Wrap" />
+        TextWrapping="Wrap"/>
 
       <TextBlock
         Name="LASTMODIFIED"
@@ -304,7 +306,7 @@
         FontWeight="SemiBold"
         Foreground="white"
         Text=""
-        TextWrapping="Wrap" />
+        TextWrapping="Wrap"/>
 
     </Grid>
 

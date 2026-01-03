@@ -17,18 +17,15 @@ namespace QuickFiles
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
-
             string filePath = inputFilePathBox.Text;
-            
 
-            if (filePath.Contains(".")) {
-                // todo: use a better way to check if it's a file.. there's built in functions for this I'm just dumb
-                GetContent.Utils.GetContent getContent = new GetContent.Utils.GetContent(this);
-                return;
-            } else
-            {   
-                 GetFoldersInDir.Utils.GetFoldersInDir getFoldersInDir = new GetFoldersInDir.Utils.GetFoldersInDir(this);
-
+            if (filePath.Contains("."))
+            {
+                GetContentFromFile getContent = new GetContentFromFile(this, filePath);
+            }
+            else
+            {
+                GetFoldersInDir getFolders = new GetFoldersInDir(this, filePath);
             }
         }
 

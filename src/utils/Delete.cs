@@ -4,7 +4,6 @@ using QuickFiles;
 using System.Windows.Forms;
 using System.Windows;
 using System.Linq.Expressions;
-// oh my spaghetti code help me pls
 
 namespace QuickFiles.Utils
 {
