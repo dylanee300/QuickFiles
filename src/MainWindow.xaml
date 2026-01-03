@@ -50,7 +50,7 @@
         <Button
           Name="butt"
           Padding="10,5"
-          Background="#222"
+          Background="#4E4E55"
           BorderThickness="0"
           Click="BrowseButton_Click"
           Content="Browse"
@@ -142,6 +142,8 @@
           Foreground="White"
           Text="⟲" />
 
+          
+
       </Button>
 
     </Grid>
@@ -215,7 +217,6 @@
             Text="📁 Documents" />
         </Button>
 
-
           <Button
           Name="pictures"
           Width="150"
@@ -235,6 +236,30 @@
             FontWeight="SemiBold"
             Foreground="White"
             Text="📁 Pictures" />
+        </Button>
+      </StackPanel>
+
+      <StackPanel
+        Grid.Column="0"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"
+        Orientation="Horizontal"
+        Margin="0,70,0,0">
+        <Button
+          Name="drives"
+          Width="150"
+          Padding="5,5"
+          Background="#4E4E55"
+          Height="54"
+          Click="DRIVES_CLICK">
+          <TextBlock
+            Margin="0,0,0,10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            FontSize="18"
+            FontWeight="SemiBold"
+            Foreground="White"
+            Text="[emoji] Drives" />
         </Button>
       </StackPanel>
 

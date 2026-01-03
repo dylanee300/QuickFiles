@@ -46,7 +46,7 @@ namespace QuickFiles
 
         private void TEST_ADD_CLICK(object sender, RoutedEventArgs e)
         {
-            add add = new add(this);
+            Add add = new Add(this);
         }
 
         private void TEST_DEL_CLICK(object sender, RoutedEventArgs e)
@@ -73,6 +73,11 @@ namespace QuickFiles
             
             inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\OneDrive\\Pictures";
             BrowseButton_Click(sender, e);
+        }
+
+        private void DRIVES_CLICK(object sender, RoutedEventArgs e)
+        {
+            Drives getDrives = new Drives(this);
         }
     }
 }

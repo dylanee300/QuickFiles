@@ -41,9 +41,9 @@ using QuickFiles;
 
 namespace QuickFiles;
 
-class add
+class Add
 {
-    public add(MainWindow main)
+    public Add(MainWindow main)
     {
         string filepath = main.inputFilePathBox.Text.Trim();
         if (filepath != "")
