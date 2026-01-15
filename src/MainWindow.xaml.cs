@@ -21,11 +21,11 @@ namespace QuickFiles
 
             if (filePath.Contains("."))
             {
-                GetContentFromFile getContent = new GetContentFromFile(this, filePath);
+                GetContent.Utils.GetContent getContent = new GetContent.Utils.GetContent(this);
             }
             else
             {
-                GetFoldersInDir getFolders = new GetFoldersInDir(this, filePath);
+                GetFoldersInDir.Utils.GetFoldersInDir getFolders = new GetFoldersInDir.Utils.GetFoldersInDir(this);
             }
         }
 

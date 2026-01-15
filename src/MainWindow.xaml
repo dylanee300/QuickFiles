@@ -238,18 +238,12 @@
             Foreground="White"
             Text="📁 Pictures"/>
         </Button>
-      </StackPanel>
 
-      <StackPanel
-        Grid.Column="0"
-        Margin="0,70,0,0"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Top"
-        Orientation="Horizontal">
         <Button
           Name="drives"
           Width="150"
           Height="54"
+          Margin="10,0,0,0"
           Padding="5,5"
           Background="#4E4E55"
           Click="DRIVES_CLICK">
@@ -263,6 +257,7 @@
             Text="[emoji] Drives"/>
         </Button>
       </StackPanel>
+
 
       <Image
         Name="fileIcons"
