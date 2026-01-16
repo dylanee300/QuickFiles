@@ -9,9 +9,9 @@ namespace QuickFiles.Utils
 {
     class DeleteFile
     {
-        public DeleteFile(MainWindow mainWindow)
+        public DeleteFile(QuickFiles.Views.HomePage homePage)
         {
-            string filePath = Path.GetFullPath(mainWindow.inputFilePathBox.Text.Trim());
+            string filePath = Path.GetFullPath(homePage.inputFilePathBox.Text.Trim());
 
             var confirm = MessageBox.Show(
                 "Are you sure you want to delete " + filePath + "?",

@@ -5,11 +5,11 @@ namespace QuickFiles.Utils
 {
     public class Drives
     {
-        public Drives(MainWindow mainWindow)
+        public Drives(QuickFiles.Views.HomePage homePage)
         {
             DriveInfo[] drives = DriveInfo.GetDrives();
             var amount = drives.Length;
-            mainWindow.testOutput.Text = "";
+            homePage.testOutput.Text = "";
 
             foreach (DriveInfo drive in drives)
             {
@@ -21,7 +21,7 @@ namespace QuickFiles.Utils
                 {
                     fname = "Removable Drive";
                 }
-                mainWindow.testOutput.Text += fname + " " + "(" + bname + ")" + "\n"; // guhh
+                homePage.testOutput.Text += fname + " " + "(" + bname + ")" + "\n"; // guhh
             }
         }
     }

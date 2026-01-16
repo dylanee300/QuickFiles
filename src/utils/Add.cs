@@ -6,9 +6,9 @@ namespace QuickFiles;
 
 class Add
 {
-    public Add(MainWindow main)
+    public Add(QuickFiles.Views.HomePage homePage)
     {
-        string filepath = main.inputFilePathBox.Text.Trim();
+        string filepath = homePage.inputFilePathBox.Text.Trim();
         if (filepath != "")
         {
             if (!File.Exists(filepath))
@@ -27,10 +27,8 @@ class Add
                         "Success",
                         MessageBoxButton.OK
                     );
-                    main.testOutput.Text = "awesome! added file: " + filepath;
-
+                    homePage.testOutput.Text = "awesome! added file: " + filepath;
                     return;
-
                 }
             }
         }

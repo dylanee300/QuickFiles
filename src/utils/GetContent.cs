@@ -8,9 +8,9 @@ namespace GetContent.Utils
 {
     class GetContent
     {
-        public GetContent(MainWindow mainWindow)
+        public GetContent(QuickFiles.Views.HomePage homePage)
         {
-            string filePath = mainWindow.inputFilePathBox.Text.Trim();
+            string filePath = homePage.inputFilePathBox.Text.Trim();
 
             if (filePath != "")
             {
@@ -18,9 +18,9 @@ namespace GetContent.Utils
                 {
                     string fileContent = File.ReadAllText(filePath);
 
-                    mainWindow.testOutput.Text = fileContent;
+                    homePage.testOutput.Text = fileContent;
                 } else {
-                    mainWindow.testOutput.Text = "file not found";
+                    homePage.testOutput.Text = "file not found";
                 }
             }
         }

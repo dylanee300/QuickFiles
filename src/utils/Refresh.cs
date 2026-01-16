@@ -5,16 +5,16 @@ namespace QuickFiles
 {
     class Refresh
     {
-        public Refresh(MainWindow mainWindow)
+        public Refresh(QuickFiles.Views.HomePage homePage)
         {
-            var DesktopBox = mainWindow.DesktopButton;
-            var DownloadsButt = mainWindow.DownloadsButton;
-            var output = mainWindow.testOutput;
+            var DesktopBox = homePage.DesktopButton;
+            var DownloadsButt = homePage.DownloadsButton;
+            var output = homePage.testOutput;
 
             DesktopBox.Visibility = System.Windows.Visibility.Visible;
             DownloadsButt.Visibility = System.Windows.Visibility.Visible;
 
-            mainWindow.inputFilePathBox.Text = "";
+            homePage.inputFilePathBox.Text = "";
 
             output.Text = "";
         }

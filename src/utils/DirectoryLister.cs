@@ -8,9 +8,9 @@ namespace GetFoldersInDir.Utils
 {
     class GetFoldersInDir
     {
-        public GetFoldersInDir(MainWindow mainWindow)
+        public GetFoldersInDir(QuickFiles.Views.HomePage homePage)
         {
-            string filePath = Path.GetFullPath(mainWindow.inputFilePathBox.Text.Trim());
+            string filePath = Path.GetFullPath(homePage.inputFilePathBox.Text.Trim());
 
             // emojis are placeholders until I figure out how to do the images correctly, plus they show up as black and white so it's a bonus
 
@@ -21,7 +21,7 @@ namespace GetFoldersInDir.Utils
                     string[] dirs = Directory.GetDirectories(filePath);
                     string[] files = Directory.GetFiles(filePath);
                     string FFolderName = Path.GetFileName(filePath);
-                    mainWindow.testOutput.Text = "Folders in " + FFolderName + ":\n";
+                    homePage.testOutput.Text = "Folders in " + FFolderName + ":\n";
                     foreach (string dir in dirs)
                     {
                      string image = "📁 ";
@@ -31,10 +31,10 @@ namespace GetFoldersInDir.Utils
                     string[] DIRS = Directory.GetDirectories(filePath);
 
                       DateTime LASTMODIFIED = File.GetLastWriteTime(dir);
-                        mainWindow.testOutput.Text += image + folderName + " (Last Modified: " + LASTMODIFIED + ")\n";
+                        homePage.testOutput.Text += image + folderName + " (Last Modified: " + LASTMODIFIED + ")\n";
                     }
                     string fileNamee = Path.GetFileName(filePath);
-                    mainWindow.testOutput.Text += "\nFiles in " + fileNamee + ":\n";
+                    homePage.testOutput.Text += "\nFiles in " + fileNamee + ":\n";
                     foreach (string file in files)
                     {
                         string fileName = Path.GetFileName(file);
@@ -42,12 +42,12 @@ namespace GetFoldersInDir.Utils
 
 
                         DateTime LASTMODIFIED = File.GetLastWriteTime(file);
-                        mainWindow.testOutput.Text += image + fileName + " (Last Modified: " + LASTMODIFIED + ")\n";
+                        homePage.testOutput.Text += image + fileName + " (Last Modified: " + LASTMODIFIED + ")\n";
                     }
                 }
                 else
                 {
-                    mainWindow.testOutput.Text = "directory not found";
+                    homePage.testOutput.Text = "directory not found";
                 }
             }
 
