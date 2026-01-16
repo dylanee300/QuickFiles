@@ -49,11 +49,11 @@
         Background="#31313A"
         CornerRadius="8">
         <Button
-          Name="butt"
+          Name="browse"
           Padding="10,5"
           Background="#4E4E55"
           BorderThickness="0"
-          Click="BrowseButton_Click"
+          Click="BROWSE"
           Content="Browse"
           Cursor="Hand"
           FontSize="16"
@@ -86,7 +86,7 @@
         Padding="0"
         Background="#4E4E55"
         BorderThickness="0"
-        Click="TEST_ADD_CLICK"
+        Click="ADD"
         Cursor="Hand">
 
         <TextBlock
@@ -109,7 +109,7 @@
         Padding="0"
         Background="#4E4E55"
         BorderThickness="0"
-        Click="TEST_DEL_CLICK"
+        Click="DELETE"
         Cursor="Hand">
 
         <TextBlock
@@ -131,7 +131,7 @@
         Padding="0"
         Background="#4E4E55"
         BorderThickness="0"
-        Click="REF_CLICK"
+        Click="REFRESH"
         Cursor="Hand">
 
         <TextBlock
@@ -168,7 +168,7 @@
           Margin="0,0,20,0"
           Padding="5,5"
           Background="#4E4E55"
-          Click="DESKTOP_CLICK"
+          Click="DESKTOP"
           Cursor="Hand">
 
           <TextBlock
@@ -187,7 +187,7 @@
           Height="54"
           Padding="-3,-3"
           Background="#4E4E55"
-          Click="DOWNLOADS_CLICK"
+          Click="DOWNLOADS"
           Cursor="Hand">
 
           <TextBlock
@@ -207,7 +207,7 @@
           Margin="10,0,0,0"
           Padding="5,5"
           Background="#4E4E55"
-          Click="DOCS_CLICK">
+          Click="DOCUMENTS">
 
           <TextBlock
             Margin="0,0,0,10"
@@ -226,7 +226,7 @@
           Margin="10,0,0,0"
           Padding="5,5"
           Background="#4E4E55"
-          Click="PIC_CLICK"
+          Click="PICTRUES"
           Cursor="Hand">
 
           <TextBlock
@@ -246,7 +246,7 @@
           Margin="10,0,0,0"
           Padding="5,5"
           Background="#4E4E55"
-          Click="DRIVES_CLICK">
+          Click="DRIVES">
           <TextBlock
             Margin="0,0,0,10"
             HorizontalAlignment="Center"

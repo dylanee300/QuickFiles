@@ -15,10 +15,10 @@ namespace QuickFiles
             InitializeComponent();
         }
 
-        private void BrowseButton_Click(object sender, RoutedEventArgs e)
+        private void BROWSE(object sender, RoutedEventArgs e)
         {
             string filePath = inputFilePathBox.Text;
-
+            
             if (filePath.Contains("."))
             {
                 GetContent.Utils.GetContent getContent = new GetContent.Utils.GetContent(this);
@@ -29,50 +29,50 @@ namespace QuickFiles
             }
         }
 
-        private void DESKTOP_CLICK(object sender, RoutedEventArgs e)
+        private void DESKTOP(object sender, RoutedEventArgs e)
         {
             inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
-            BrowseButton_Click(sender, e);
+            BROWSE(sender, e);
         }
 
-        private void DOWNLOADS_CLICK(object sender, RoutedEventArgs e)  
+        private void DOWNLOADS(object sender, RoutedEventArgs e)  
         {
             inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Downloads";
-            BrowseButton_Click(sender, e);
+            BROWSE(sender, e);
         }
 
-        private void TEST_ADD_CLICK(object sender, RoutedEventArgs e)
+        private void ADD(object sender, RoutedEventArgs e)
         {
             Add add = new Add(this);
         }
 
-        private void TEST_DEL_CLICK(object sender, RoutedEventArgs e)
+        private void DELETE(object sender, RoutedEventArgs e)
         {
             DeleteFile delete = new DeleteFile(this);
         }
 
 
-        private void REF_CLICK(object sender, RoutedEventArgs e)
+        private void REFRESH(object sender, RoutedEventArgs e)
         {
             Refresh refresh = new Refresh(this);
         }
 
-        private void DOCS_CLICK(object sender, RoutedEventArgs e)
+        private void DOCUMENTS(object sender, RoutedEventArgs e)
         {
             inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Documents";
-            BrowseButton_Click(sender, e);
+            BROWSE(sender, e);
         }
 
-        private void PIC_CLICK(object sender, RoutedEventArgs e)
+        private void PICTRUES(object sender, RoutedEventArgs e)
         {
             inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Pictures";
-            BrowseButton_Click(sender, e);
+            BROWSE(sender, e);
             
             inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\OneDrive\\Pictures";
-            BrowseButton_Click(sender, e);
+            BROWSE(sender, e);
         }
 
-        private void DRIVES_CLICK(object sender, RoutedEventArgs e)
+        private void DRIVES(object sender, RoutedEventArgs e)
         {
             Drives getDrives = new Drives(this);
         }
