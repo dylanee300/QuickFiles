@@ -16,7 +16,7 @@ namespace QuickFiles
 
             homePage.inputFilePathBox.Text = "";
 
-            output.Text = "";
+            homePage.testOutput.Text = "";
         }
     }
 }

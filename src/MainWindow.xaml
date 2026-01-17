@@ -6,5 +6,5 @@
   Title="QuickFiles"
   MinWidth="600"
   MinHeight="400">
-  <Frame Source="Views/HomePage.xaml" NavigationUIVisibility="Hidden" />
+  <Frame Source="Views/Home/HomePage.xaml" NavigationUIVisibility="Hidden" />
 </Window>
