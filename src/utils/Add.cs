@@ -14,7 +14,7 @@ class Add
             if (!File.Exists(filepath))
             {
                 var confirm = MessageBox.Show(
-                    "Are you sure you want to add " + filepath + "?",
+                    "Are you sure you want to add " + filepath + " ?",
                     "Confirm",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Warning
@@ -22,12 +22,11 @@ class Add
                 if (confirm == MessageBoxResult.Yes)
                 {
                     File.Create(filepath).Close();
-                    MessageBox.Show(
-                        "File added: " + filepath,
-                        "Success",
-                        MessageBoxButton.OK
-                    );
-                    homePage.testOutput.Text = "awesome! added file: " + filepath;
+                    // skip to desktop in kind of a weird way
+                    string desktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
+                    homePage.inputFilePathBox.Text = desktopPath;
+                    GetFoldersInDir.Utils.GetFoldersInDir getFolders = new GetFoldersInDir.Utils.GetFoldersInDir(homePage);
+                    // homePage.testOutput.Text = "Awesome! Added file: " + filepath;
                     return;
                 }
             }

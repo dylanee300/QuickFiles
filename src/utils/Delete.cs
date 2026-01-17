@@ -14,7 +14,7 @@ namespace QuickFiles.Utils
             string filePath = Path.GetFullPath(homePage.inputFilePathBox.Text.Trim());
 
             var confirm = MessageBox.Show(
-                "Are you sure you want to delete " + filePath + "?",
+                "Are you sure you want to delete " + filePath + " ?",
                 "Confirm",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning
@@ -38,7 +38,7 @@ namespace QuickFiles.Utils
                         } else
                         {
                             MessageBox.Show(
-                                "File or dir not found",
+                                "File or directory not found",
                                 "Error",
                                 MessageBoxButton.OK,
                                 MessageBoxImage.Error
