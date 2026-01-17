@@ -1,3 +1,4 @@
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using QuickFiles.Utils;
@@ -16,6 +17,13 @@ namespace QuickFiles.Views
 		private void BROWSE(object sender, RoutedEventArgs e)
 		{
 			string filePath = inputFilePathBox.Text;
+			if (filePath == "")
+			{
+				// Fix: fixed issue with it crashing when no file path is provided
+				// there's actually a lot more than this we need to check for and fix.. I know of a few currently
+				testOutput.Text = "Please provide a valid file path";
+				return;
+			}
 			if (filePath.Contains("."))
 			{
 				GetContent.Utils.GetContent getContent = new GetContent.Utils.GetContent(this);
