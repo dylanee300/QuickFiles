@@ -28,9 +28,6 @@ class Add
                     GetFoldersInDir.Utils.GetFoldersInDir getFolders = new GetFoldersInDir.Utils.GetFoldersInDir(homePage);
                     // homePage.testOutput.Text = "Awesome! Added file: " + filepath;
                     return;
-                } else
-                {
-                    homePage.testOutput.Text = "File or directory not found";
                 }
             } 
         } 
