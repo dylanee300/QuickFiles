@@ -21,17 +21,16 @@ namespace GetFoldersInDir.Utils
                     string[] dirs = Directory.GetDirectories(filePath);
                     string[] files = Directory.GetFiles(filePath);
                     string FFolderName = Path.GetFileName(filePath);
-                    homePage.testOutput.Text = "Folders in " + FFolderName + ":\n";
+
+                    homePage.testOutput.Text = "Folders in " + FFolderName.Replace("\\", "") + ":\n";
                     foreach (string dir in dirs)
                     {
                      string image = "📁 ";
                      string folderName = Path.GetFileName(dir);
-
-                    // this is apart of my attempt to display the clicked dir
-                    string[] DIRS = Directory.GetDirectories(filePath);
+                     string[] DIRS = Directory.GetDirectories(filePath);
 
                       DateTime LASTMODIFIED = File.GetLastWriteTime(dir);
-                        homePage.testOutput.Text += image + folderName + " (Last Modified: " + LASTMODIFIED + ")\n";
+                      homePage.testOutput.Text += image + folderName + " (Last Modified: " + LASTMODIFIED + ")\n";
                     }
                     string fileNamee = Path.GetFileName(filePath);
                     homePage.testOutput.Text += "\nFiles in " + fileNamee + ":\n";

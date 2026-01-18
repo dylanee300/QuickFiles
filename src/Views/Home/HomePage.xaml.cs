@@ -53,7 +53,9 @@ namespace QuickFiles.Views
 
 		private void DELETE(object sender, RoutedEventArgs e)
 		{
-			DeleteFile delete = new DeleteFile(this);
+			// way nicer usage no?
+			Delete delete = new Delete();
+			delete.DeleteService(this);
 		}
 
 		private void REFRESH(object sender, RoutedEventArgs e)

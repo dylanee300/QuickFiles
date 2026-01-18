@@ -1,17 +1,26 @@
 using System.IO;
-using System;
-using QuickFiles;
-using System.Windows.Forms;
 using System.Windows;
-using System.Linq.Expressions;
 
 namespace QuickFiles.Utils
 {
-    class DeleteFile
+    class Delete
     {
-        public DeleteFile(QuickFiles.Views.HomePage homePage)
+
+        private void RefreshToDesktop(QuickFiles.Views.HomePage homePage)
         {
-            string filePath = Path.GetFullPath(homePage.inputFilePathBox.Text.Trim());
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            homePage.inputFilePathBox.Text = desktopPath;
+            new GetFoldersInDir.Utils.GetFoldersInDir(homePage);
+        }
+        public void DeleteService(QuickFiles.Views.HomePage homePage)
+        {
+            string filePath = homePage.inputFilePathBox.Text.Trim();
+            
+            if (string.IsNullOrWhiteSpace(filePath))
+            {
+                homePage.testOutput.Text = "Please enter a valid path to delete";
+                return;
+            }
 
             var confirm = MessageBox.Show(
                 "Are you sure you want to delete " + filePath + " ?",
@@ -27,24 +36,17 @@ namespace QuickFiles.Utils
                     if (File.Exists(filePath))
                     {
                         File.Delete(filePath);
-                        MessageBox.Show("File deleted", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                    else
+                        RefreshToDesktop(homePage);
+                        return;
+                    } else
                     {
                         if (Directory.Exists(filePath))
                         {
                             Directory.Delete(filePath, true);
-                            MessageBox.Show("Directory deleted", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                        } else
-                        {
-                            MessageBox.Show(
-                                "File or directory not found",
-                                "Error",
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Error
-                            );
+                            RefreshToDesktop(homePage);
+                            return;
                         }
-                    } 
+                    }
                 } catch (Exception ex)
                 {
                     MessageBox.Show(
@@ -55,6 +57,6 @@ namespace QuickFiles.Utils
                     );
                 }
             }
-        }
+        }   
     }
 }
