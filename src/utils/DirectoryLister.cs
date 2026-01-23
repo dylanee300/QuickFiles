@@ -25,23 +25,23 @@ namespace GetFoldersInDir.Utils
                     homePage.testOutput.Text = "Folders in " + FFolderName.Replace("\\", "") + ":\n";
                     foreach (string dir in dirs)
                     {
-                     string image = "📁 ";
+                     string icon = Icon.Folder;
                      string folderName = Path.GetFileName(dir);
                      string[] DIRS = Directory.GetDirectories(filePath);
 
                       DateTime LASTMODIFIED = File.GetLastWriteTime(dir);
-                      homePage.testOutput.Text += image + folderName + " (Last Modified: " + LASTMODIFIED + ")\n";
+                      homePage.testOutput.Text += icon + folderName + " (Last Modified: " + LASTMODIFIED + ")\n";
                     }
                     string fileNamee = Path.GetFileName(filePath);
                     homePage.testOutput.Text += "\nFiles in " + fileNamee + ":\n";
                     foreach (string file in files)
                     {
                         string fileName = Path.GetFileName(file);
-                        string image = "📄 ";
+                        string icon = Icon.File;
 
 
                         DateTime LASTMODIFIED = File.GetLastWriteTime(file);
-                        homePage.testOutput.Text += image + fileName + " (Last Modified: " + LASTMODIFIED + ")\n";
+                        homePage.testOutput.Text += icon + fileName + " (Last Modified: " + LASTMODIFIED + ")\n";
                     }
                 }
                 else
