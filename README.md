@@ -1,48 +1,38 @@
-<h1 style="text-align:center;">QuickFiles</h1>
+# QuickFiles
 
-<h3 style="text-decoration: underline;">About</h3>
+A simple, easy to use file manager built with .NET and WPF.
 
-<p>
-    QuickFiles is built with .NET and WPF. It's a simple, easy to use file manager. There is still a lot to add, and I'm constantly updating it. We are still in the early stages.
-</p>
+---
 
-<h3 style="text-decoration: underline;">Setup</h3>
+![QuickFiles](src/Assets/preview.png)
 
-<p><strong>Prerequisites:</strong></p>
+---
 
-<ul>
-  <li>
-    <a href="https://dotnet.microsoft.com/download" target="_blank">
-      .NET 6.0 SDK or later
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dabbinavo/vscode-xamlstyler" target="_blank">
-      XAML Styler for VS Code
-    </a>
-    (What I used and highly recommend)
-  </li>
-</ul>
+## About
+QuickFiles is a simple, easy to use file manager for Windows. Built with .NET and WPF. The project is actively developed and new features are being worked on!
 
-<h3 style="text-decoration: underline;">Build and Run</h3>
+##  Setup
+**Prerequisites:**
+- [.NET 6.0 SDK or later](https://dotnet.microsoft.com/download)
+- [XAML Styler for VS Code](https://github.com/dabbinavo/vscode-xamlstyler) (recommended)
 
-<ol>
-  <li>
-    Clone the repository:
-    <pre><code class="language-sh">git clone https://github.com/dylanee300/QuickFiles/</code></pre>
-  </li>
-  <li>
-    Open the folder where it was cloned:
-    <pre><code class="language-sh">code .</code></pre>
-  </li>
-  <li>
-    Build and run:
-    <pre><code class="language-sh">dotnet run</code></pre>
-  </li>
-</ol>
+##  Build & Run
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/dylanee300/QuickFiles/
+   ```
+2. **Open the project folder:**
+   ```sh
+   code .
+   ```
+3. **Build and run:**
+   ```sh
+   dotnet run
+   ```
 
-<h3 style="text-decoration: underline;">Contributing</h3>
+##  Contributing
+Contributions are always welcome! Feel free to open a pull request or issue.
 
-<p>
-  Any contribution is always welcome! Feel free to open a pull request.
-</p>
+---
+
+© 2026 Dylanee
