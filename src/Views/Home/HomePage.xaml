@@ -36,65 +36,67 @@
             </Grid>
         </DockPanel>
         <!-- main -->
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <!-- all main buttons -->
-                <TextBox Name="inputFilePathBox" Grid.Column="0" Height="35" Margin="0,0,10,0" Padding="8,4" Background="#222" BorderBrush="#444" BorderThickness="2" FontSize="18" FontWeight="SemiBold" Foreground="White" Text=""/>
-                <Border Grid.Column="1" Width="100" Height="35" Margin="0,0,10,0" Background="#31313A" CornerRadius="8">
-                    <Button Name="browse" Padding="10,5" Background="#4E4E55" BorderThickness="0" Click="BROWSE" Content="Browse" Cursor="Hand" FontSize="16" FontWeight="Bold" Foreground="White"/>
-                </Border>
-                <Button Name="plusfile" Grid.Column="2" Width="30" Height="35" Margin="0,0,5,0" Padding="0" Background="#4E4E55" BorderThickness="0" Click="ADD" Cursor="Hand">
-                    <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="+"/>
-                </Button>
-                <Button Name="deleteFile" Grid.Column="3" Width="30" Height="35" Margin="0,0,10,0" Padding="0" Background="#4E4E55" BorderThickness="0" Click="DELETE" Cursor="Hand">
-                    <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="-"/>
-                </Button>
-                <Button Name="refressh" Grid.Column="4" Width="100" Height="35" Padding="0" Background="#4E4E55" BorderThickness="0" Click="REFRESH" Cursor="Hand">
-                    <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="⟲"/>
-                </Button>
-            </Grid>
-            <Grid Grid.Row="1" Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
-                    <Button Name="DesktopButton" Width="150" Height="54" Margin="0,0,20,0" Padding="5,5" Background="#4E4E55" Click="DESKTOP" Cursor="Hand">
-                        <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="📁 Desktop"/>
-                    </Button>
-                    <Button Name="DownloadsButton" Width="150" Height="54" Padding="-3,-3" Background="#4E4E55" Click="DOWNLOADS" Cursor="Hand">
-                        <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="📁 Downloads"/>
-                    </Button>
-                    <Button Name="docsButton" Width="150" Height="54" Margin="10,0,0,0" Padding="5,5" Background="#4E4E55" Click="DOCUMENTS">
-                        <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="📁 Documents"/>
-                    </Button>
-                    <Button Name="pictures" Width="150" Height="54" Margin="10,0,0,0" Padding="5,5" Background="#4E4E55" Click="PICTRUES" Cursor="Hand">
-                        <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="📁 Pictures"/>
-                    </Button>
-                </StackPanel>
-                <Image Name="fileIcons" Grid.Column="1" Width="64" Height="64" Margin="10,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-            </Grid>
-            <Grid Grid.Row="2" Margin="10">
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <!-- start of folder nav -->
-                <TextBox Name="testOutput" Grid.Row="0" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="Transparent" BorderThickness="0" Cursor="Hand" FontSize="18" FontWeight="SemiBold" Foreground="white" IsReadOnly="True" TextWrapping="Wrap"/>
-                <TextBlock Name="LASTMODIFIED" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontSize="14" FontWeight="SemiBold" Foreground="white" Text="" TextWrapping="Wrap"/>
+                <Grid Grid.Row="0" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- all main buttons -->
+                    <TextBox Name="inputFilePathBox" Grid.Column="0" Height="35" Margin="0,0,10,0" Padding="8,4" Background="#222" BorderBrush="#444" BorderThickness="2" FontSize="18" FontWeight="SemiBold" Foreground="White" Text=""/>
+                    <Border Grid.Column="1" Width="100" Height="35" Margin="0,0,10,0" Background="#31313A" CornerRadius="8">
+                        <Button Name="browse" Padding="10,5" Background="#4E4E55" BorderThickness="0" Click="BROWSE" Content="Browse" Cursor="Hand" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                    </Border>
+                    <Button Name="plusfile" Grid.Column="2" Width="30" Height="35" Margin="0,0,5,0" Padding="0" Background="#4E4E55" BorderThickness="0" Click="ADD" Cursor="Hand">
+                        <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="+"/>
+                    </Button>
+                    <Button Name="deleteFile" Grid.Column="3" Width="30" Height="35" Margin="0,0,10,0" Padding="0" Background="#4E4E55" BorderThickness="0" Click="DELETE" Cursor="Hand">
+                        <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="-"/>
+                    </Button>
+                    <Button Name="refressh" Grid.Column="4" Width="100" Height="35" Padding="0" Background="#4E4E55" BorderThickness="0" Click="REFRESH" Cursor="Hand">
+                        <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="⟲"/>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="1" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
+                        <Button Name="DesktopButton" Width="150" Height="54" Margin="0,0,20,0" Padding="5,5" Background="#4E4E55" Click="DESKTOP" Cursor="Hand">
+                            <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="📁 Desktop"/>
+                        </Button>
+                        <Button Name="DownloadsButton" Width="150" Height="54" Padding="-3,-3" Background="#4E4E55" Click="DOWNLOADS" Cursor="Hand">
+                            <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="📁 Downloads"/>
+                        </Button>
+                        <Button Name="docsButton" Width="150" Height="54" Margin="10,0,0,0" Padding="5,5" Background="#4E4E55" Click="DOCUMENTS">
+                            <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="📁 Documents"/>
+                        </Button>
+                        <Button Name="pictures" Width="150" Height="54" Margin="10,0,0,0" Padding="5,5" Background="#4E4E55" Click="PICTRUES" Cursor="Hand">
+                            <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="📁 Pictures"/>
+                        </Button>
+                    </StackPanel>
+                    <Image Name="fileIcons" Grid.Column="1" Width="64" Height="64" Margin="10,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                </Grid>
+                <Grid Grid.Row="2" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <!-- start of folder nav -->
+                    <TextBox Name="testOutput" Grid.Row="0" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="Transparent" BorderThickness="0" Cursor="Hand" FontSize="18" FontWeight="SemiBold" Foreground="white" IsReadOnly="True" TextWrapping="Wrap"/>
+                    <TextBlock Name="LASTMODIFIED" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontSize="14" FontWeight="SemiBold" Foreground="white" Text="" TextWrapping="Wrap"/>
+                </Grid>
             </Grid>
-        </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>
