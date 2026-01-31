@@ -57,7 +57,8 @@ namespace QuickFiles.Views
 
 		private void ADD(object sender, RoutedEventArgs e)
 		{
-			Add add = new Add(this);
+			AddService addService = new AddService();
+			addService.Add(this);
 		}
 
 		private void DELETE(object sender, RoutedEventArgs e)

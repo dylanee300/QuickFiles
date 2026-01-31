@@ -8,7 +8,6 @@ namespace GetModified.Utils
         public void GetLastModifiedTime(QuickFiles.Views.HomePage homePage)
         {
             string filePath = homePage.inputFilePathBox.Text;
-
             DateTime LASTMODIFIED = File.GetLastWriteTime(filePath);
             return;
         }

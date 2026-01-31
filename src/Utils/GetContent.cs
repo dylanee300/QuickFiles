@@ -1,8 +1,5 @@
 using System;
 using System.IO;
-using System.Runtime.CompilerServices;
-using QuickFiles;
-using GetModified.Utils;
 
 namespace GetContent.Utils
 {
@@ -12,16 +9,26 @@ namespace GetContent.Utils
         {
             string filePath = homePage.inputFilePathBox.Text.Trim();
 
-            if (filePath != "")
+            if (string.IsNullOrEmpty(filePath))
             {
-                if (File.Exists(filePath))
-                {
-                    string fileContent = File.ReadAllText(filePath);
+                homePage.testOutput.Text = "Please enter a file path";
+                return;
+            }
 
-                    homePage.testOutput.Text = fileContent;
-                } else {
-                    homePage.testOutput.Text = "file not found";
-                }
+            if (!File.Exists(filePath))
+            {
+                homePage.testOutput.Text = "File not found";
+                return;
+            }
+
+            try
+            {
+                string fileContent = File.ReadAllText(filePath);
+                homePage.testOutput.Text = fileContent;
+            }
+            catch (Exception ex)
+            {
+                homePage.testOutput.Te   xt = $"Error reading file: {ex.Message}";
             }
         }
     }

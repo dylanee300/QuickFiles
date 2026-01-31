@@ -1,3 +1,4 @@
+// I'm NOT even gonna TRY to touch this mess till I rewrite the whole file nav system
 using System;
 using System.IO;
 using System.Windows;

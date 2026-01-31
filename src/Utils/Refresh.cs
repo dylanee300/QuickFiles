@@ -10,12 +10,10 @@ namespace QuickFiles
             var DesktopBox = homePage.DesktopButton;
             var DownloadsButt = homePage.DownloadsButton;
             var output = homePage.testOutput;
-
             DesktopBox.Visibility = System.Windows.Visibility.Visible;
             DownloadsButt.Visibility = System.Windows.Visibility.Visible;
 
             homePage.inputFilePathBox.Text = "";
-
             homePage.testOutput.Text = "";
         }
     }
