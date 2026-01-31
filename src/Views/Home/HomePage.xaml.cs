@@ -12,6 +12,15 @@ namespace QuickFiles.Views
 		public HomePage()
 		{
 			InitializeComponent();
+			LoadDrives();
+		}
+
+		private void LoadDrives()
+		{
+			if (DrivesList != null)
+			{
+				DrivesList.ItemsSource = Directory.GetLogicalDrives();
+			}
 		}
 
 		private void BROWSE(object sender, RoutedEventArgs e)
@@ -53,9 +62,8 @@ namespace QuickFiles.Views
 
 		private void DELETE(object sender, RoutedEventArgs e)
 		{
-			// way nicer usage no?
-			Delete delete = new Delete();
-			delete.DeleteService(this);
+			DeleteService deleteService = new DeleteService();
+			deleteService.Delete(this);
 		}
 
 		private void REFRESH(object sender, RoutedEventArgs e)
