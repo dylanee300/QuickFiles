@@ -28,7 +28,7 @@
                     <ItemsControl Name="DrivesList" HorizontalAlignment="Center">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Button Content="{Binding}" Margin="0,2,0,2" Background="#31313A" Foreground="White" FontSize="16" Height="32" Width="100" Cursor="Hand"/>
+                                <Button Content="{Binding}" Margin="0,2,0,2" Background="#31313A" Foreground="White" FontSize="16" Height="32" Width="100" Cursor="Hand" Click="DisplayDriveContents"/>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
@@ -95,6 +95,9 @@
                     <!-- start of folder nav -->
                     <TextBox Name="testOutput" Grid.Row="0" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="Transparent" BorderThickness="0" Cursor="Hand" FontSize="18" FontWeight="SemiBold" Foreground="white" IsReadOnly="True" TextWrapping="Wrap"/>
                     <TextBlock Name="LASTMODIFIED" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontSize="14" FontWeight="SemiBold" Foreground="white" Text="" TextWrapping="Wrap"/>
+
+                    <!--MouseDoubleClick="OUTPUT_DOUBLECLICK"-->
+                    <ListBox x:Name="output" FontFamily="Segoe UI Emoji" FontSize="18" Background="Transparent" BorderThickness="0" Foreground="White" MouseDoubleClick="OUTPUT_DOUBLECLICK"/>
                 </Grid>
             </Grid>
         </ScrollViewer>

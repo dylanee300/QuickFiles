@@ -23,13 +23,18 @@ namespace QuickFiles.Views
 			}
 		}
 
+		private void DisplayDriveContents(object sender, RoutedEventArgs e)
+		{
+			string drivePath = (string)((Button)sender).Content;
+			inputFilePathBox.Text = drivePath;	
+			BROWSE(sender, e);
+		}
+
 		private void BROWSE(object sender, RoutedEventArgs e)
 		{
 			string filePath = inputFilePathBox.Text;
 			if (filePath == "")
 			{
-				// Fix: fixed issue with it crashing when no file path is provided
-				// there's actually a lot more than this we need to check for and fix.. I know of a few currently
 				testOutput.Text = "Please provide a valid file path";
 				return;
 			}
@@ -39,7 +44,7 @@ namespace QuickFiles.Views
 			}
 			else
 			{
-				GetFoldersInDir.Utils.GetFoldersInDir getFolders = new GetFoldersInDir.Utils.GetFoldersInDir(this);
+				GetFoldersInDir.Utils.GetFoldersInDirs getFolders = new GetFoldersInDir.Utils.GetFoldersInDirs(this);
 			}
 		}
 
@@ -89,6 +94,15 @@ namespace QuickFiles.Views
 		private void DRIVES(object sender, RoutedEventArgs e)
 		{
 			Drives getDrives = new Drives(this);
+		}
+
+		private void OUTPUT_DOUBLECLICK(object sender, System.Windows.Input.MouseButtonEventArgs e)
+		{
+			if (output.SelectedItem is ListBoxItem selectedItem && selectedItem.Tag is string path)
+			{
+				inputFilePathBox.Text = path;
+				BROWSE(sender, e);
+			}
 		}
 	}
 }

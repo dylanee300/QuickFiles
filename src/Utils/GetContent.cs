@@ -8,6 +8,7 @@ namespace GetContent.Utils
         public GetContent(QuickFiles.Views.HomePage homePage)
         {
             string filePath = homePage.inputFilePathBox.Text.Trim();
+            homePage.output.Items.Clear();
 
             if (string.IsNullOrEmpty(filePath))
             {
@@ -28,7 +29,7 @@ namespace GetContent.Utils
             }
             catch (Exception ex)
             {
-                homePage.testOutput.Te   xt = $"Error reading file: {ex.Message}";
+                homePage.testOutput.Text = $"Error reading file: {ex.Message}";
             }
         }
     }

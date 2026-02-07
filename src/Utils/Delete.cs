@@ -10,7 +10,7 @@ namespace QuickFiles.Utils
         {
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             homePage.inputFilePathBox.Text = desktopPath;
-            new GetFoldersInDir.Utils.GetFoldersInDir(homePage);
+            new GetFoldersInDir.Utils.GetFoldersInDirs(homePage);
         }
 
         public void Delete(QuickFiles.Views.HomePage homePage)

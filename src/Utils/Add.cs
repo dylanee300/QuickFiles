@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Windows;
 
@@ -7,10 +8,9 @@ namespace QuickFiles.Utils
     {
         private void RefreshToDesktop(QuickFiles.Views.HomePage homePage)
         {
-            string desktopPath =
-             Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             homePage.inputFilePathBox.Text = desktopPath;
-            new GetFoldersInDir.Utils.GetFoldersInDir(homePage);
+            new GetFoldersInDir.Utils.GetFoldersInDirs(homePage);
         }
 
         public void Add(QuickFiles.Views.HomePage homePage)
@@ -35,6 +35,7 @@ namespace QuickFiles.Utils
                     "Confirm",
                     MessageBoxButton.YesNo
                 );
+
                 // could add another early return here but it's fine
                 if (confirm == MessageBoxResult.Yes)
                 {

@@ -1,56 +1,50 @@
-// I'm NOT even gonna TRY to touch this mess till I rewrite the whole file nav system
 using System;
 using System.IO;
-using System.Windows;
-using GetModified.Utils;
 using QuickFiles;
+using System.Windows.Controls;
+using QuickFiles.Views;
 
 namespace GetFoldersInDir.Utils
 {
-    class GetFoldersInDir
+    class GetFoldersInDirs
     {
-        public GetFoldersInDir(QuickFiles.Views.HomePage homePage)
+        public GetFoldersInDirs(QuickFiles.Views.HomePage homePage)
         {
-            string filePath = Path.GetFullPath(homePage.inputFilePathBox.Text.Trim());
+            string filepath = homePage.inputFilePathBox.Text.Trim();
 
-            // emojis are placeholders until I figure out how to do the images correctly, plus they show up as black and white so it's a bonus
+            if (string.IsNullOrWhiteSpace(filepath))
+                return;
 
-            if (filePath != "")
+            string fullpath = Path.GetFullPath(filepath);
+
+            homePage.output.Items.Clear();
+            homePage.testOutput.Text = "";
+
+            if (!Directory.Exists(filepath)) { homePage.output.Items.Add("Path not found"); return; }
+
+            string foldername = Path.GetFullPath(filepath);
+
+            foreach (string dir in Directory.GetDirectories(fullpath))
             {
-                if (Directory.Exists(filePath))
-                {
-                    string[] dirs = Directory.GetDirectories(filePath);
-                    string[] files = Directory.GetFiles(filePath);
-                    string FFolderName = Path.GetFileName(filePath);
+                string name = Path.GetFileName(dir);
+                DateTime lastmodified = Directory.GetLastWriteTime(dir);
 
-                    homePage.testOutput.Text = "Folders in " + FFolderName.Replace("\\", "") + ":\n";
-                    foreach (string dir in dirs)
-                    {
-                     string icon = Icon.Folder;
-                     string folderName = Path.GetFileName(dir);
-                     string[] DIRS = Directory.GetDirectories(filePath);
-
-                      DateTime LASTMODIFIED = File.GetLastWriteTime(dir);
-                      homePage.testOutput.Text += icon + folderName + " (Last Modified: " + LASTMODIFIED + ")\n";
-                    }
-                    string fileNamee = Path.GetFileName(filePath);
-                    homePage.testOutput.Text += "\nFiles in " + fileNamee + ":\n";
-                    foreach (string file in files)
-                    {
-                        string fileName = Path.GetFileName(file);
-                        string icon = Icon.File;
-
-
-                        DateTime LASTMODIFIED = File.GetLastWriteTime(file);
-                        homePage.testOutput.Text += icon + fileName + " (Last Modified: " + LASTMODIFIED + ")\n";
-                    }
-                }
-                else
-                {
-                    homePage.testOutput.Text = "directory not found";
-                }
+                ListBoxItem item = new ListBoxItem();
+                item.Content = $"{Icon.Folder} {name} (Last Modified: {lastmodified})";
+                item.Tag = dir;
+                homePage.output.Items.Add(item);
             }
 
+            foreach(string file in Directory.GetFiles(fullpath))
+            {
+                string name = Path.GetFileName(file);
+                DateTime lastModified = File.GetLastWriteTime(file);
+
+                ListBoxItem item = new ListBoxItem();
+                item.Content = $"{Icon.File} {name} (Last Modified: {lastModified})";
+                item.Tag = file;
+                homePage.output.Items.Add(item);
+            }
         }
     }
 }
