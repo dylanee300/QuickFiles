@@ -9,7 +9,38 @@
     <Grid Background="#1C1C1E">
         <!--main button styles-->
         <Grid.Resources>
-                        <!-- and listbox hover colur too -->
+             <!-- other main button styles too -->
+            <Style x:Key="MainButtonStyles" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border> 
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#31313A"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#44444A"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="border" Property="Opacity" Value="0.5"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+                        <!-- and listbox hover colour too -->
                         <Style x:Key="NoBlueListBoxItem" TargetType="ListBoxItem">
                             <Setter Property="Background" Value="Transparent"/>
                             <Setter Property="Foreground" Value="White"/>
@@ -115,16 +146,14 @@
                     </Grid.ColumnDefinitions>
                     <!-- all main buttons -->
                     <TextBox Name="inputFilePathBox" Grid.Column="0" Height="35" Margin="0,0,10,0" Padding="8,4" Background="#222" BorderBrush="#444" BorderThickness="2" FontSize="18" FontWeight="SemiBold" Foreground="White" Text=""/>
-                    <Border Grid.Column="1" Width="100" Height="35" Margin="0,0,10,0" Background="#31313A" CornerRadius="8">
-                        <Button Name="browse" Padding="10,5" Background="#4E4E55" BorderThickness="0" Click="BROWSE" Content="Browse" Cursor="Hand" FontSize="16" FontWeight="Bold" Foreground="White"/>
-                    </Border>
-                    <Button Name="plusfile" Grid.Column="2" Width="30" Height="35" Margin="0,0,5,0" Padding="0" Background="#4E4E55" BorderThickness="0" Click="ADD" Cursor="Hand">
+                    <Button Name="browse" Grid.Column="1" Width="100" Height="35" Margin="0,0,10,0" Padding="10,5" Style="{StaticResource MainButtonStyles}" Click="BROWSE" Content="Browse" FontWeight="Bold"/>
+                    <Button Name="plusfile" Grid.Column="2" Width="30" Height="35" Margin="0,0,5,0" Padding="0" Style="{StaticResource MainButtonStyles}" Click="ADD">
                         <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="+"/>
                     </Button>
-                    <Button Name="deleteFile" Grid.Column="3" Width="30" Height="35" Margin="0,0,10,0" Padding="0" Background="#4E4E55" BorderThickness="0" Click="DELETE" Cursor="Hand">
+                    <Button Name="deleteFile" Grid.Column="3" Width="30" Height="35" Margin="0,0,10,0" Padding="0" Style="{StaticResource MainButtonStyles}" Click="DELETE">
                         <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="-"/>
                     </Button>
-                    <Button Name="refressh" Grid.Column="4" Width="100" Height="35" Padding="0" Background="#4E4E55" BorderThickness="0" Click="REFRESH" Cursor="Hand">
+                    <Button Name="refressh" Grid.Column="4" Width="100" Height="35" Padding="0" Style="{StaticResource MainButtonStyles}" Click="REFRESH">
                         <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="⟲"/>
                     </Button>
                 </Grid>
