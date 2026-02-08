@@ -38,7 +38,7 @@ namespace QuickFiles.Views
 				testOutput.Text = "Please provide a valid file path";
 				return;
 			}
-			if (filePath.Contains("."))
+			if (File.Exists(filePath))
 			{
 				GetContent.Utils.GetContent getContent = new GetContent.Utils.GetContent(this);
 			}
@@ -91,6 +91,18 @@ namespace QuickFiles.Views
 			BROWSE(sender, e);
 		}
 
+		private void VIDEOS(object sender, RoutedEventArgs e)
+		{
+			inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Videos";
+			BROWSE(sender, e);
+		}
+
+		private void MUSIC(object sender, RoutedEventArgs e)
+		{
+			inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Music";
+			BROWSE(sender, e);
+		}
+
 		private void DRIVES(object sender, RoutedEventArgs e)
 		{
 			Drives getDrives = new Drives(this);
@@ -104,5 +116,14 @@ namespace QuickFiles.Views
 				BROWSE(sender, e);
 			}
 		}
+
+		private void HOME_CLICK(object sender, RoutedEventArgs e)
+		{
+			var userDir = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile);
+			inputFilePathBox.Text = userDir;
+			BROWSE(sender, e);
+
+		}
+		
 	}
 }

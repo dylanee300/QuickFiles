@@ -10,7 +10,7 @@ namespace QuickFiles
             homePage.DesktopButton.Visibility = Visibility.Visible;
             homePage.DownloadsButton.Visibility = Visibility.Visible;
             homePage.docsButton.Visibility = Visibility.Visible;
-            homePage.pictures.Visibility = Visibility.Visible;
+            homePage.picturesButton.Visibility = Visibility.Visible;
 
             homePage.inputFilePathBox.Text = string.Empty;
             homePage.testOutput.Text = string.Empty;

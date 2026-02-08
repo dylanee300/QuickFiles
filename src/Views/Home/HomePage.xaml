@@ -108,8 +108,29 @@
         <DockPanel Grid.Column="0" LastChildFill="True" Background="#232326">
             <!-- home settings etc -->
             <StackPanel DockPanel.Dock="Top" Margin="0,20,0,0">
-                <Button Name="HomeButton" Width="115" Height="42" Margin="16,0,16,8" Padding="4,4" Style="{StaticResource SidebarButtonStyle}">Home</Button>
-                <Button Name="SettingsButton" Width="115" Height="42" Margin="16,0,16,8" Padding="4,4" Style="{StaticResource SidebarButtonStyle}">⚙ Settings</Button>
+                <Button Name="HomeButton" Width="115" Height="42" Margin="16,0,16,8" Padding="4,4" Style="{StaticResource SidebarButtonStyle}" Click="HOME_CLICK">Home</Button>
+                
+                <Border Height="1" Background="#3A3A3D" Margin="16,4,16,16"/>
+                                <Button Name="DesktopButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DESKTOP">
+                    <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Desktop"/>
+                </Button>
+                <Button Name="DownloadsButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DOWNLOADS">
+                    <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Downloads"/>
+                </Button>
+                <Button Name="docsButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DOCUMENTS">
+                    <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Documents"/>
+                </Button>
+                <Button Name="picturesButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="PICTRUES">
+                    <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Pictures"/>
+                </Button>
+                <Button Name="videosButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="VIDEOS">
+                    <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Videos"/>
+                </Button>
+                <Button Name="musicButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="MUSIC">
+                    <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Music"/>
+                </Button>
+                <!--seperator line-->
+                <Border Height="1" Background="#3A3A3D" Margin="16,16,16,16"/>
             </StackPanel>
 			<!-- drives List -->
             <Grid DockPanel.Dock="Bottom" Margin="0,0,0,20">
@@ -129,7 +150,7 @@
             </Grid>
         </DockPanel>
         <!-- main -->
-        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden">
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -162,20 +183,6 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
-                        <Button Name="DesktopButton" Width="145" Height="48" Margin="0,0,14,0" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DESKTOP">
-                            <TextBlock Margin="0,0,0,6" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="17" FontWeight="SemiBold" Foreground="White" Text="📁 Desktop"/>
-                        </Button>
-                        <Button Name="DownloadsButton" Width="145" Height="48" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DOWNLOADS">
-                            <TextBlock Margin="0,0,0,6" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="17" FontWeight="SemiBold" Foreground="White" Text="📁 Downloads"/>
-                        </Button>
-                        <Button Name="docsButton" Width="145" Height="48" Margin="10,0,0,0" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DOCUMENTS">
-                            <TextBlock Margin="0,0,0,6" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="17" FontWeight="SemiBold" Foreground="White" Text="📁 Documents"/>
-                        </Button>
-                        <Button Name="pictures" Width="145" Height="48" Margin="10,0,0,0" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="PICTRUES">
-                            <TextBlock Margin="0,0,0,6" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="17" FontWeight="SemiBold" Foreground="White" Text="📁 Pictures"/>
-                        </Button>
-                    </StackPanel>
                     <Image Name="fileIcons" Grid.Column="1" Width="64" Height="64" Margin="10,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                 </Grid>
                 <Grid Grid.Row="2" Margin="10">
@@ -185,7 +192,7 @@
                     </Grid.RowDefinitions>
                     <!-- start of folder nav -->
                     <!--MouseDoubleClick="OUTPUT_DOUBLECLICK"-->
-                    <ListBox x:Name="output" FontFamily="Segoe UI Emoji" FontSize="18" Background="Transparent" BorderThickness="0" Foreground="White" MouseDoubleClick="OUTPUT_DOUBLECLICK" Margin="0,0,0,0" ItemContainerStyle="{StaticResource NoBlueListBoxItem}"/>
+                    <ListBox x:Name="output" FontFamily="Segoe UI Emoji" FontSize="18" Background="Transparent" BorderThickness="0" Foreground="White" Margin="0" MouseDoubleClick="OUTPUT_DOUBLECLICK" ItemContainerStyle="{StaticResource NoBlueListBoxItem}" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False"/>
                     <TextBox Name="testOutput" Grid.Row="0" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="Transparent" BorderThickness="0" Cursor="Hand" FontSize="18" FontWeight="SemiBold" Foreground="white" IsReadOnly="True" TextWrapping="Wrap"/>
                     <TextBlock Name="LASTMODIFIED" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontSize="14" FontWeight="SemiBold" Foreground="white" Text="" TextWrapping="Wrap"/>
                 </Grid>
