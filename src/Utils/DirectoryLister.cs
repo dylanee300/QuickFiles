@@ -3,6 +3,7 @@ using System.IO;
 using QuickFiles;
 using System.Windows.Controls;
 using QuickFiles.Views;
+using System.Windows;
 
 namespace GetFoldersInDir.Utils
 {
@@ -10,6 +11,14 @@ namespace GetFoldersInDir.Utils
     {
         public GetFoldersInDirs(QuickFiles.Views.HomePage homePage)
         {
+
+            /**
+            ((Button)homePage.FindName("DesktopButton")).Visibility = Visibility.Collapsed;
+            ((Button)homePage.FindName("DownloadsButton")).Visibility = Visibility.Collapsed;
+            ((Button)homePage.FindName("docsButton")).Visibility = Visibility.Collapsed;
+            ((Button)homePage.FindName("pictures")).Visibility = Visibility.Collapsed;
+            */
+
             string filepath = homePage.inputFilePathBox.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(filepath))

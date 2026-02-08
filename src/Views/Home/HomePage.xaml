@@ -7,6 +7,68 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid Background="#1C1C1E">
+        <!--main button styles-->
+        <Grid.Resources>
+                        <!-- and listbox hover colur too -->
+                        <Style x:Key="NoBlueListBoxItem" TargetType="ListBoxItem">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Padding" Value="4,2"/>
+                            <Setter Property="SnapsToDevicePixels" Value="True"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="0">
+                                            <ContentPresenter/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter TargetName="Bd" Property="Background" Value="#26272A"/>
+                                            </Trigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="Bd" Property="Background" Value="#31313A"/>
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter TargetName="Bd" Property="Opacity" Value="0.5"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+            <Style x:Key="SidebarButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#26272A"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#31313A"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="border" Property="Opacity" Value="0.5"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <!--end-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="*"/>
@@ -15,8 +77,8 @@
         <DockPanel Grid.Column="0" LastChildFill="True" Background="#232326">
             <!-- home settings etc -->
             <StackPanel DockPanel.Dock="Top" Margin="0,20,0,0">
-                <Button Name="HomeButton" Height="48" Margin="16,0,16,8" Background="#31313A" Foreground="White" FontSize="18" FontWeight="Bold" Cursor="Hand">Home</Button>
-                <Button Name="SettingsButton" Height="48" Margin="16,0,16,8" Background="#31313A" Foreground="White" FontSize="18" FontWeight="Bold" Cursor="Hand">⚙ Settings</Button>
+                <Button Name="HomeButton" Width="115" Height="42" Margin="16,0,16,8" Padding="4,4" Style="{StaticResource SidebarButtonStyle}">Home</Button>
+                <Button Name="SettingsButton" Width="115" Height="42" Margin="16,0,16,8" Padding="4,4" Style="{StaticResource SidebarButtonStyle}">⚙ Settings</Button>
             </StackPanel>
 			<!-- drives List -->
             <Grid DockPanel.Dock="Bottom" Margin="0,0,0,20">
@@ -28,7 +90,7 @@
                     <ItemsControl Name="DrivesList" HorizontalAlignment="Center">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Button Content="{Binding}" Margin="0,2,0,2" Background="#31313A" Foreground="White" FontSize="16" Height="32" Width="100" Cursor="Hand" Click="DisplayDriveContents"/>
+                                <Button Content="{Binding}" Margin="0,2,0,2" Style="{StaticResource SidebarButtonStyle}" Height="32" Width="100" Click="DisplayDriveContents"/>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
@@ -72,17 +134,17 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
-                        <Button Name="DesktopButton" Width="150" Height="54" Margin="0,0,20,0" Padding="5,5" Background="#4E4E55" Click="DESKTOP" Cursor="Hand">
-                            <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="📁 Desktop"/>
+                        <Button Name="DesktopButton" Width="145" Height="48" Margin="0,0,14,0" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DESKTOP">
+                            <TextBlock Margin="0,0,0,6" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="17" FontWeight="SemiBold" Foreground="White" Text="📁 Desktop"/>
                         </Button>
-                        <Button Name="DownloadsButton" Width="150" Height="54" Padding="-3,-3" Background="#4E4E55" Click="DOWNLOADS" Cursor="Hand">
-                            <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="📁 Downloads"/>
+                        <Button Name="DownloadsButton" Width="145" Height="48" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DOWNLOADS">
+                            <TextBlock Margin="0,0,0,6" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="17" FontWeight="SemiBold" Foreground="White" Text="📁 Downloads"/>
                         </Button>
-                        <Button Name="docsButton" Width="150" Height="54" Margin="10,0,0,0" Padding="5,5" Background="#4E4E55" Click="DOCUMENTS">
-                            <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="📁 Documents"/>
+                        <Button Name="docsButton" Width="145" Height="48" Margin="10,0,0,0" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DOCUMENTS">
+                            <TextBlock Margin="0,0,0,6" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="17" FontWeight="SemiBold" Foreground="White" Text="📁 Documents"/>
                         </Button>
-                        <Button Name="pictures" Width="150" Height="54" Margin="10,0,0,0" Padding="5,5" Background="#4E4E55" Click="PICTRUES" Cursor="Hand">
-                            <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="📁 Pictures"/>
+                        <Button Name="pictures" Width="145" Height="48" Margin="10,0,0,0" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="PICTRUES">
+                            <TextBlock Margin="0,0,0,6" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="17" FontWeight="SemiBold" Foreground="White" Text="📁 Pictures"/>
                         </Button>
                     </StackPanel>
                     <Image Name="fileIcons" Grid.Column="1" Width="64" Height="64" Margin="10,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
@@ -93,11 +155,10 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <!-- start of folder nav -->
+                    <!--MouseDoubleClick="OUTPUT_DOUBLECLICK"-->
+                    <ListBox x:Name="output" FontFamily="Segoe UI Emoji" FontSize="18" Background="Transparent" BorderThickness="0" Foreground="White" MouseDoubleClick="OUTPUT_DOUBLECLICK" Margin="0,0,0,0" ItemContainerStyle="{StaticResource NoBlueListBoxItem}"/>
                     <TextBox Name="testOutput" Grid.Row="0" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="Transparent" BorderThickness="0" Cursor="Hand" FontSize="18" FontWeight="SemiBold" Foreground="white" IsReadOnly="True" TextWrapping="Wrap"/>
                     <TextBlock Name="LASTMODIFIED" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontSize="14" FontWeight="SemiBold" Foreground="white" Text="" TextWrapping="Wrap"/>
-
-                    <!--MouseDoubleClick="OUTPUT_DOUBLECLICK"-->
-                    <ListBox x:Name="output" FontFamily="Segoe UI Emoji" FontSize="18" Background="Transparent" BorderThickness="0" Foreground="White" MouseDoubleClick="OUTPUT_DOUBLECLICK"/>
                 </Grid>
             </Grid>
         </ScrollViewer>

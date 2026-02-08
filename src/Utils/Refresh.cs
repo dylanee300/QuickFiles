@@ -1,20 +1,19 @@
-using System.IO;
-using System.Windows.Controls.Primitives;
+using System.Windows;
+using QuickFiles.Views;
 
 namespace QuickFiles
 {
     class Refresh
     {
-        public Refresh(QuickFiles.Views.HomePage homePage)
+        public Refresh(HomePage homePage)
         {
-            var DesktopBox = homePage.DesktopButton;
-            var DownloadsButt = homePage.DownloadsButton;
-            var output = homePage.testOutput;
-            DesktopBox.Visibility = System.Windows.Visibility.Visible;
-            DownloadsButt.Visibility = System.Windows.Visibility.Visible;
+            homePage.DesktopButton.Visibility = Visibility.Visible;
+            homePage.DownloadsButton.Visibility = Visibility.Visible;
+            homePage.docsButton.Visibility = Visibility.Visible;
+            homePage.pictures.Visibility = Visibility.Visible;
 
-            homePage.inputFilePathBox.Text = "";
-            homePage.testOutput.Text = "";
+            homePage.inputFilePathBox.Text = string.Empty;
+            homePage.testOutput.Text = string.Empty;
             homePage.output.Items.Clear();
         }
     }
