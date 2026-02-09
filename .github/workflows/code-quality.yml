@@ -1,4 +1,4 @@
- name: Auto Code Cleanup
+name: Auto Code Cleanup
 
 on:
   push:
