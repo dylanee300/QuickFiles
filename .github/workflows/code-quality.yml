@@ -1,0 +1,58 @@
+ name: Auto Code Cleanup
+
+on:
+  push:
+    branches:
+      - "**"    # all branches
+  schedule:
+    - cron: "0 * * * *"   # every hour
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  cleanup:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Run formatter (C# and XAML)
+        run: |
+          # Format for c#
+          dotnet format --folder . --files "**/*.cs" --indentation-space 4 --severity error
+
+          # Format for XAML
+          dotnet format --folder . --files "**/*.xaml" --indentation-space 4 --severity error
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create cleanup PR
+        if: steps.git-check.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: automated code cleanup"
+          title: "Automated code cleanup"
+          body: |
+            This PR was created automatically.
+            It applies formatting and style fixes for C# and XAML.
+          branch: auto/code-cleanup
