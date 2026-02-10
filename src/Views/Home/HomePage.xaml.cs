@@ -124,6 +124,28 @@ namespace QuickFiles.Views
 			BROWSE(sender, e);
 
 		}
+
+		private void BACK(object sender, RoutedEventArgs e)
+		{
+			string path = inputFilePathBox.Text;
+
+			if (string.IsNullOrWhiteSpace(path))
+				return;
+
+			string root = Path.GetPathRoot(path);
+			DirectoryInfo parent = Directory.GetParent(path);
+
+			//crash prevention if trying to go back when at root
+			if (parent == null)
+			{
+				inputFilePathBox.Text = root;
+			}
+			else
+			{
+				inputFilePathBox.Text = parent.FullName;
+			}
+			BROWSE(sender, e);
+		}
 		
 	}
 }

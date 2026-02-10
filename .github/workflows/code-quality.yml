@@ -3,9 +3,9 @@ name: Auto Code Cleanup
 on:
   push:
     branches:
-      - "**"    # all branches
+      - "main" # only main matters in this case
   schedule:
-    - cron: "0 * * * *"   # every hour
+    - cron: "0 * * * *"  # every hour
 
 permissions:
   contents: write
@@ -28,23 +28,27 @@ jobs:
 
       - name: Restore dependencies
         run: dotnet restore
+        shell: pwsh
 
       - name: Run formatter (C# and XAML)
         run: |
-          # Format for c#
+          # Format C# files
           dotnet format --folder . --files "**/*.cs" --indentation-space 4 --severity error
-
-          # Format for XAML
+          
+          # Format XAML files
           dotnet format --folder . --files "**/*.xaml" --indentation-space 4 --severity error
+        shell: pwsh
 
       - name: Check for changes
         id: git-check
         run: |
-          if [[ -n "$(git status --porcelain)" ]]; then
-            echo "changed=true" >> $GITHUB_OUTPUT
-          else
-            echo "changed=false" >> $GITHUB_OUTPUT
-          fi
+          $changes = git status --porcelain
+          if ($changes) {
+              Write-Output "changed=true" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+          } else {
+              Write-Output "changed=false" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+          }
+        shell: pwsh
 
       - name: Create cleanup PR
         if: steps.git-check.outputs.changed == 'true'
