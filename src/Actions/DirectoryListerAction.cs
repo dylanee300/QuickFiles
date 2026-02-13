@@ -1,9 +1,6 @@
-using System;
 using System.IO;
 using QuickFiles;
 using System.Windows.Controls;
-using QuickFiles.Views;
-using System.Windows;
 
 namespace QuickFiles.Actions
 {
@@ -47,10 +44,11 @@ namespace QuickFiles.Actions
             foreach(string file in Directory.GetFiles(fullpath))
             {
                 string name = Path.GetFileName(file);
-                DateTime lastModified = File.GetLastWriteTime(file);
+                FileInfo fileInfo = new FileInfo(file);
+                var size = FormatFileSize.GetFileSize(fileInfo.Length);
 
                 ListBoxItem item = new ListBoxItem();
-                item.Content = $"{Icon.File} {name} (Last Modified: {lastModified})";
+                item.Content = $"{Icon.File} {name} (Last Modified: {fileInfo.LastWriteTime}) (Size: {size})";
                 item.Tag = file;
                 homePage.output.Items.Add(item);
             }
