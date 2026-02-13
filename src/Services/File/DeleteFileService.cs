@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Windows;
 
-namespace QuickFiles.Utils
+namespace QuickFiles.Service
 {
     class DeleteService
     {
@@ -10,7 +10,7 @@ namespace QuickFiles.Utils
         {
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             homePage.inputFilePathBox.Text = desktopPath;
-            new GetFoldersInDir.Utils.GetFoldersInDirs(homePage);
+            QuickFiles.Actions.GetFoldersInDirs getFolders = new QuickFiles.Actions.GetFoldersInDirs(homePage);
         }
 
         public void Delete(QuickFiles.Views.HomePage homePage)

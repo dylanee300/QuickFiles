@@ -1,7 +1,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using QuickFiles.Utils;
+using QuickFiles.Service;
 namespace QuickFiles.Views
 {
 	/// <summary>
@@ -40,11 +40,11 @@ namespace QuickFiles.Views
 			}
 			if (File.Exists(filePath))
 			{
-				GetContent.Utils.GetContent getContent = new GetContent.Utils.GetContent(this);
+				QuickFiles.Service.GetContent getContent = new QuickFiles.Service.GetContent(this);
 			}
 			else
 			{
-				GetFoldersInDir.Utils.GetFoldersInDirs getFolders = new GetFoldersInDir.Utils.GetFoldersInDirs(this);
+				QuickFiles.Actions.GetFoldersInDirs getFolders = new QuickFiles.Actions.GetFoldersInDirs(this);
 			}
 		}
 
@@ -62,19 +62,19 @@ namespace QuickFiles.Views
 
 		private void ADD(object sender, RoutedEventArgs e)
 		{
-			AddService addService = new AddService();
+			QuickFiles.Service.AddService addService = new QuickFiles.Service.AddService();
 			addService.Add(this);
 		}
 
 		private void DELETE(object sender, RoutedEventArgs e)
 		{
-			DeleteService deleteService = new DeleteService();
+			QuickFiles.Service.DeleteService deleteService = new QuickFiles.Service.DeleteService();
 			deleteService.Delete(this);
 		}
 
 		private void REFRESH(object sender, RoutedEventArgs e)
 		{
-			Refresh refresh = new Refresh(this);
+			QuickFiles.Refresh refresh = new QuickFiles.Refresh(this);
 		}
 
 		private void DOCUMENTS(object sender, RoutedEventArgs e)
@@ -105,7 +105,7 @@ namespace QuickFiles.Views
 
 		private void DRIVES(object sender, RoutedEventArgs e)
 		{
-			Drives getDrives = new Drives(this);
+			QuickFiles.Service.Drives getDrives = new QuickFiles.Service.Drives(this);
 		}
 
 		private void OUTPUT_DOUBLECLICK(object sender, System.Windows.Input.MouseButtonEventArgs e)

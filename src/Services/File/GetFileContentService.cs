@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace GetContent.Utils
+namespace QuickFiles.Service
 {
     class GetContent
     {

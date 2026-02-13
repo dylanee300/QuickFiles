@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using QuickFiles.Views;
 using System.Windows;
 
-namespace GetFoldersInDir.Utils
+namespace QuickFiles.Actions
 {
     class GetFoldersInDirs
     {

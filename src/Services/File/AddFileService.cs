@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Windows;
 
-namespace QuickFiles.Utils
+namespace QuickFiles.Service
 {
     class AddService
     {
@@ -10,7 +10,7 @@ namespace QuickFiles.Utils
         {
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             homePage.inputFilePathBox.Text = desktopPath;
-            new GetFoldersInDir.Utils.GetFoldersInDirs(homePage);
+            QuickFiles.Actions.GetFoldersInDirs getFolders = new QuickFiles.Actions.GetFoldersInDirs(homePage);
         }
 
         public void Add(QuickFiles.Views.HomePage homePage)
@@ -35,8 +35,7 @@ namespace QuickFiles.Utils
                     "Confirm",
                     MessageBoxButton.YesNo
                 );
-
-                // could add another early return here but it's fine
+                
                 if (confirm == MessageBoxResult.Yes)
                 {
                     File.Create(filePath).Close();

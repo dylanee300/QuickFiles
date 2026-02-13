@@ -1,7 +1,7 @@
 using System.IO;
 using QuickFiles;
 
-namespace QuickFiles.Utils
+namespace QuickFiles.Service
 {
     public class Drives
     {
