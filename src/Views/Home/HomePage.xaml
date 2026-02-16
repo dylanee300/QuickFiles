@@ -160,28 +160,28 @@
                 <Grid Grid.Row="0" Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="320"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Name="inputFilePathBox" Grid.Column="0" Height="35" Margin="0,0,10,0" Padding="8,4" Background="#222" BorderBrush="#444" BorderThickness="2" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="" IsReadOnly="True"/>
-                    <Button Name="GoBackButton" Grid.Column="1" Width="40" Height="35" Padding="0" Style="{StaticResource MainButtonStyles}" Click="BACK">
+                    <TextBox Name="inputFilePathBox" Grid.Column="0" Height="35" Margin="0,0,10,0" Padding="8,4" Background="#222" BorderBrush="#444" BorderThickness="2" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="" IsReadOnly="True" HorizontalAlignment="Stretch"/>
+                        <TextBox Name="SearchBox" Grid.Column="1" Height="35" Margin="0,0,10,0" Padding="8,4" Background="#222" BorderBrush="#444" BorderThickness="2" FontSize="17" FontWeight="SemiBold" Foreground="White" Text="" IsReadOnly="False" MinWidth="180" MaxWidth="400" KeyDown="SeachBox_Active"/>
+                    <Button Name="GoBackButton" Grid.Column="2" Width="40" Height="35" Padding="0" Style="{StaticResource MainButtonStyles}" Click="BACK">
                         <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="←"/>
                     </Button>
-                    <Button Name="GoForwardButton" Grid.Column="2" Width="40" Height="35" Padding="0" Style="{StaticResource MainButtonStyles}">
+                    <Button Name="GoForwardButton" Grid.Column="3" Width="40" Height="35" Padding="0" Style="{StaticResource MainButtonStyles}">
                         <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="→"/>
                     </Button>
-                    <Button Name="plusfile" Grid.Column="3" Width="30" Height="35" Margin="0,0,5,0" Padding="0" Style="{StaticResource MainButtonStyles}" Click="ADD">
+                    <Button Name="plusfile" Grid.Column="4" Width="30" Height="35" Margin="0,0,5,0" Padding="0" Style="{StaticResource MainButtonStyles}" Click="ADD">
                         <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="+"/>
                     </Button>
-                    <Button Name="deleteFile" Grid.Column="4" Width="30" Height="35" Margin="0,0,10,0" Padding="0" Style="{StaticResource MainButtonStyles}" Click="DELETE">
+                    <Button Name="deleteFile" Grid.Column="5" Width="30" Height="35" Margin="0,0,10,0" Padding="0" Style="{StaticResource MainButtonStyles}" Click="DELETE">
                         <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="-"/>
                     </Button>
-                    <Button Name="refressh" Grid.Column="5" Width="100" Height="35" Padding="0" Style="{StaticResource MainButtonStyles}" Click="REFRESH">
+                    <Button Name="refressh" Grid.Column="6" Width="100" Height="35" Padding="0" Style="{StaticResource MainButtonStyles}" Click="REFRESH">
                         <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="⟲"/>
                     </Button>
                 </Grid>

@@ -2,6 +2,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Diagnostics;
+using System.Windows.Input;
 
 namespace QuickFiles.Views
 {
@@ -144,6 +145,18 @@ namespace QuickFiles.Views
             //Crash prevention if trying to go back when at root
             inputFilePathBox.Text = parent == null ? root : parent.FullName;
             BROWSE(sender, e);
+        }
+
+        private void SeachBox_Active(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (SearchBox.IsFocused)
+                {
+                    var search = new QuickFiles.Service.Search(this);
+                    e.Handled = true;
+                }
+            }
         }
     }
 }

@@ -34,22 +34,27 @@ namespace QuickFiles.Actions
             {
                 string name = Path.GetFileName(dir);
                 DateTime lastmodified = Directory.GetLastWriteTime(dir);
-
-                ListBoxItem item = new ListBoxItem();
-                item.Content = $"{Icon.Folder} {name} (Last Modified: {lastmodified})";
-                item.Tag = dir;
+                var item = QuickFiles.Actions.AddListBoxItemAction.DirectoryItem(
+                    dir,
+                    Icon.Folder,
+                    name,
+                    lastmodified
+                );
                 homePage.output.Items.Add(item);
             }
 
-            foreach(string file in Directory.GetFiles(fullpath))
+            foreach (string file in Directory.GetFiles(fullpath))
             {
                 string name = Path.GetFileName(file);
                 FileInfo fileInfo = new FileInfo(file);
                 var size = FormatFileSize.GetFileSize(fileInfo.Length);
-
-                ListBoxItem item = new ListBoxItem();
-                item.Content = $"{Icon.File} {name} (Last Modified: {fileInfo.LastWriteTime}) (Size: {size})";
-                item.Tag = file;
+                var item = QuickFiles.Actions.AddListBoxItemAction.FileItem(
+                    file,
+                    Icon.File,
+                    name,
+                    fileInfo.LastWriteTime,
+                    size
+                );
                 homePage.output.Items.Add(item);
             }
         }
