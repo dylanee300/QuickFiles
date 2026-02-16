@@ -24,7 +24,7 @@
                         <ControlTemplate TargetType="Button">
                             <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border> 
+                            </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter TargetName="border" Property="Background" Value="#31313A"/>
@@ -109,7 +109,7 @@
             <!-- home settings etc -->
             <StackPanel DockPanel.Dock="Top" Margin="0,20,0,0">
                 <Button Name="HomeButton" Width="115" Height="42" Margin="16,0,16,8" Padding="4,4" Style="{StaticResource SidebarButtonStyle}" Click="HOME_CLICK">Home</Button>
-                
+
                 <Border Height="1" Background="#3A3A3D" Margin="16,4,16,16"/>
                                 <Button Name="DesktopButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DESKTOP">
                     <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Desktop"/>
@@ -153,9 +153,9 @@
         <Grid Grid.Column="1">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/> 
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>   
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" Margin="10">
                     <Grid.ColumnDefinitions>
