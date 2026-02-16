@@ -22,7 +22,7 @@ namespace QuickFiles.Service
                 homePage.testOutput.Text = "Please enter a valid path to delete";
                 return;
             }
-
+            
             if (!File.Exists(filePath) && !Directory.Exists(filePath))
             {
                 homePage.testOutput.Text = "File or folder does not exist";

@@ -1,5 +1,4 @@
 using System.IO;
-using QuickFiles;
 
 namespace QuickFiles.Service
 {
@@ -7,20 +6,20 @@ namespace QuickFiles.Service
     {
         public Drives(QuickFiles.Views.HomePage homePage)
         {
-            DriveInfo[] drives = DriveInfo.GetDrives();
+            DriveInfo[] Drives = DriveInfo.GetDrives();
             homePage.testOutput.Text = "";
 
-            foreach (DriveInfo drive in drives)
+            foreach (DriveInfo Drive in Drives)
             {
-                var fname = drive.VolumeLabel;
-                var bname = drive.Name.Replace("\\", "");
+                var label = Drive.VolumeLabel;
+                var name = Drive.Name.Replace("\\", "");
 
-                if (drive.DriveType == DriveType.Removable)
+                if (Drive.DriveType == DriveType.Removable)
                 {
-                    fname = "Removable Drive";
+                    label = "Removable Drive";
                 }
-                homePage.testOutput.Text += fname + " " + "(" + bname + ")" + "\n"; // guhh
             }
+
         }
     }
 }
