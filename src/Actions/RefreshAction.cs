@@ -7,14 +7,12 @@ namespace QuickFiles
     {
         public Refresh(HomePage homePage)
         {
-            homePage.DesktopButton.Visibility = Visibility.Visible;
-            homePage.DownloadsButton.Visibility = Visibility.Visible;
-            homePage.docsButton.Visibility = Visibility.Visible;
-            homePage.picturesButton.Visibility = Visibility.Visible;
+            string currentPath = homePage.inputFilePathBox.Text.Trim();
+            //Dummy sender and RoutedEventArgs
+            object sender = homePage;
+            RoutedEventArgs e = new RoutedEventArgs(); 
 
-            homePage.inputFilePathBox.Text = string.Empty;
-            homePage.testOutput.Text = string.Empty;
-            homePage.output.Items.Clear();
+            homePage.BROWSE(sender, e);               
         }
     }
 }

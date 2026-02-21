@@ -30,7 +30,7 @@ namespace QuickFiles.Actions
 
             string foldername = Path.GetFullPath(filepath);
 
-            foreach (string dir in Directory.GetDirectories(fullpath))
+            foreach (string dir in Directory.EnumerateDirectories(fullpath))
             {
                 string name = Path.GetFileName(dir);
                 DateTime lastmodified = Directory.GetLastWriteTime(dir);

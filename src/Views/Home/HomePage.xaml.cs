@@ -32,7 +32,7 @@ namespace QuickFiles.Views
             BROWSE(sender, e);
         }
 
-        private void BROWSE(object sender, RoutedEventArgs e)
+        public void BROWSE(object sender, RoutedEventArgs e)
         {
             string filePath = inputFilePathBox.Text;
 
@@ -142,7 +142,7 @@ namespace QuickFiles.Views
             string root = Path.GetPathRoot(path);
             DirectoryInfo parent = Directory.GetParent(path);
 
-            //Crash prevention if trying to go back when at root
+            //Crash prevention if trying to go back when at root dir
             inputFilePathBox.Text = parent == null ? root : parent.FullName;
             BROWSE(sender, e);
         }

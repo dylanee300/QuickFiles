@@ -18,7 +18,7 @@ namespace QuickFiles.Service
 
             homePage.output.Items.Clear();
 
-            var dirs = Directory.GetDirectories(filepath);
+            var dirs = Directory.EnumerateDirectories(filepath); //Better memory performance than .GetDirectories()
 
             foreach (var dir in dirs)
             {
