@@ -168,7 +168,10 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <TextBox Name="inputFilePathBox" Grid.Column="0" Height="35" Margin="0,0,10,0" Padding="8,4" Background="#222" BorderBrush="#444" BorderThickness="2" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="" IsReadOnly="True" HorizontalAlignment="Stretch"/>
-                        <TextBox Name="SearchBox" Grid.Column="1" Height="35" Margin="0,0,10,0" Padding="8,4" Background="#222" BorderBrush="#444" BorderThickness="2" FontSize="17" FontWeight="SemiBold" Foreground="White" Text="" IsReadOnly="False" MinWidth="180" MaxWidth="400" KeyDown="SeachBox_Active"/>
+                        <Grid Grid.Column="1" Margin="0,0,10,0" MinWidth="160" MaxWidth="350">
+                            <TextBox Name="SearchBox" Height="35" Padding="8,4" Background="#222" BorderBrush="#444" BorderThickness="2" FontSize="23" FontWeight="SemiBold" Foreground="White" Text="" IsReadOnly="False" KeyDown="SeachBox_Active"/>
+                            <TextBlock x:Name="SearchPlaceholder" Text="Search..." Foreground="#888" FontSize="17" FontWeight="SemiBold" Padding="8,4" VerticalAlignment="Center" IsHitTestVisible="False" Visibility="Visible"/>
+                        </Grid>
                     <Button Name="GoBackButton" Grid.Column="2" Width="40" Height="35" Padding="0" Style="{StaticResource MainButtonStyles}" Click="BACK">
                         <TextBlock Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="bold" Foreground="White" Text="←"/>
                     </Button>

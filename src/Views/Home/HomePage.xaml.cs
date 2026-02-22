@@ -156,6 +156,9 @@ namespace QuickFiles.Views
                     var search = new QuickFiles.Service.Search(this);
                     e.Handled = true;
                 }
+            } else if (SearchBox.IsFocused)
+            {
+                SearchPlaceholder.Text = string.Empty;
             }
         }
     }
