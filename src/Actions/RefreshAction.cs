@@ -12,7 +12,7 @@ namespace QuickFiles
             object sender = homePage;
             RoutedEventArgs e = new RoutedEventArgs(); 
 
-            homePage.BROWSE(sender, e);               
+            homePage.BROWSE(sender, e);           
         }
     }
 }

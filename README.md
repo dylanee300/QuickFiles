@@ -5,6 +5,7 @@ A simple, easy to use file manager built with .NET and WPF.
 ---
 
 ![QuickFiles](src/Assets/preview.png)
+![QuickFiles Example](src/Assets/example.png)
 
 ---
 

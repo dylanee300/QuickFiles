@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-
 namespace QuickFiles.Service
 {
     class GetContent

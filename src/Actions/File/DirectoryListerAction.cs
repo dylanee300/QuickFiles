@@ -26,7 +26,7 @@ namespace QuickFiles.Actions
             homePage.output.Items.Clear();
             homePage.testOutput.Text = "";
 
-            if (!Directory.Exists(filepath)) { homePage.output.Items.Add("Path not found"); return; }
+            if (!Directory.Exists(filepath)) { homePage.output.Items.Add("Path not found"); return; } //Crash prevention for invalid paths
 
             string foldername = Path.GetFullPath(filepath);
 

@@ -12,7 +12,6 @@ namespace QuickFiles.Service
             homePage.inputFilePathBox.Text = desktopPath;
             QuickFiles.Actions.GetFoldersInDirs getFolders = new QuickFiles.Actions.GetFoldersInDirs(homePage);
         }
-
         public void Delete(QuickFiles.Views.HomePage homePage)
         {
             string filePath = homePage.inputFilePathBox.Text.Trim();
@@ -49,8 +48,6 @@ namespace QuickFiles.Service
                 {
                     Directory.Delete(filePath, true);
                 }
-
-                homePage.testOutput.Text = "Deleted successfully";
                 RefreshToDesktop(homePage);
             }
             catch (Exception ex)
