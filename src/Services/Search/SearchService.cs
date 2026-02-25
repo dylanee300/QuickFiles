@@ -4,7 +4,7 @@ using System.IO;
 namespace QuickFiles.Service
 {
     public class Search
-    {
+    {   
         public Search(QuickFiles.Views.HomePage homePage)
         {
             string filepath = homePage.inputFilePathBox.Text?.Trim();
@@ -19,6 +19,7 @@ namespace QuickFiles.Service
             homePage.output.Items.Clear();
 
             var dirs = Directory.EnumerateDirectories(filepath); //Better memory performance than .GetDirectories()
+            var files = Directory.GetFiles(filepath);
 
             foreach (var dir in dirs)
             {
@@ -31,6 +32,25 @@ namespace QuickFiles.Service
                         Icon.Folder,
                         name,
                         lastModified
+                    );
+                    homePage.output.Items.Add(item);
+                }
+            }
+            
+            foreach (var file in files)
+            {
+                string name = Path.GetFileName(file);
+                if (name.Contains(query, StringComparison.OrdinalIgnoreCase))
+                {
+                    DateTime lastModified = File.GetLastWriteTime(file);
+                    long sizeInBytes = new FileInfo(file).Length;
+                    string sizeFormatted = FormatFileSize.GetFileSize(sizeInBytes);
+                    var item = QuickFiles.Actions.AddListBoxItemAction.FileItem(
+                        file,
+                        Icon.File,
+                        name,
+                        lastModified,
+                        sizeFormatted
                     );
                     homePage.output.Items.Add(item);
                 }
