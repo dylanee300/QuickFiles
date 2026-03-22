@@ -9,6 +9,21 @@
     <Grid Background="#1C1C1E">
         <!--main button styles-->
         <Grid.Resources>
+            <!--Tooltip styles for sidebar buttons-->
+            <Style x:Key="SidebarToolTip" TargetType="ToolTip">
+                <Setter Property="Background" Value="#232326"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Padding" Value="10,6"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush" Value="#444"/>
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="8" ShadowDepth="2" Color="#AA000000"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
                         <Style x:Key="CheckBoxStyle" TargetType="CheckBox">
                             <Setter Property="Foreground" Value="White"/>
                             <Setter Property="Background" Value="#232326"/>
@@ -136,22 +151,40 @@
                 <Button Name="HomeButton" Width="115" Height="42" Margin="16,0,16,8" Padding="4,4" Style="{StaticResource SidebarButtonStyle}" Click="HOME_CLICK">Home</Button>
 
                 <Border Height="1" Background="#3A3A3D" Margin="16,4,16,16"/>
-                                <Button Name="DesktopButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DESKTOP">
+                <Button Name="DesktopButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DESKTOP">
+                    <Button.ToolTip>
+                        <ToolTip Style="{StaticResource SidebarToolTip}">Desktop</ToolTip>
+                    </Button.ToolTip>
                     <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Desktop"/>
                 </Button>
                 <Button Name="DownloadsButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DOWNLOADS">
+                    <Button.ToolTip>
+                        <ToolTip Style="{StaticResource SidebarToolTip}">Downloads</ToolTip>
+                    </Button.ToolTip>
                     <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Downloads"/>
                 </Button>
                 <Button Name="docsButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="DOCUMENTS">
+                    <Button.ToolTip>
+                        <ToolTip Style="{StaticResource SidebarToolTip}">Documents</ToolTip>
+                    </Button.ToolTip>
                     <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Documents"/>
                 </Button>
-                <Button Name="picturesButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="PICTRUES">
+                <Button Name="picturesButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="PICTURES">
+                    <Button.ToolTip>
+                        <ToolTip Style="{StaticResource SidebarToolTip}">Pictures</ToolTip>
+                    </Button.ToolTip>
                     <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Pictures"/>
                 </Button>
                 <Button Name="videosButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="VIDEOS">
+                    <Button.ToolTip>
+                        <ToolTip Style="{StaticResource SidebarToolTip}">Videos</ToolTip>
+                    </Button.ToolTip>
                     <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Videos"/>
                 </Button>
                 <Button Name="musicButton" Width="145" Height="38" Margin="16,0,16,6" Padding="8,4" Style="{StaticResource SidebarButtonStyle}" Click="MUSIC">
+                    <Button.ToolTip>
+                        <ToolTip Style="{StaticResource SidebarToolTip}">Music</ToolTip>
+                    </Button.ToolTip>
                     <TextBlock HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" Foreground="White" Text="📁 Music"/>
                 </Button>
                 <!--seperator line-->
@@ -192,7 +225,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox x:Name="inputFilePathBox" Grid.Column="0" Height="35" Margin="0,0,8,0" Padding="8,4" Background="#222" BorderBrush="#444" BorderThickness="2" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="" IsReadOnly="False" HorizontalAlignment="Stretch" MaxWidth="650" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+                    <TextBox x:Name="inputFilePathBox" Grid.Column="0" Height="35" Margin="0,0,8,0" Padding="8,4" Background="#222" BorderBrush="#444" BorderThickness="2" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="" IsReadOnly="False" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
                     <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,10,0" MinWidth="300" MaxWidth="600">
                         <Grid>
                             <TextBox x:Name="SearchBox" Height="35" Width="200" Padding="8,4" Background="#222" BorderBrush="#444" BorderThickness="2" FontSize="18" FontWeight="SemiBold" Foreground="White" Text="" IsReadOnly="False" KeyDown="SeachBox_Active" MinWidth="100"/>

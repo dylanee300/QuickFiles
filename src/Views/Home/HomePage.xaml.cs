@@ -120,7 +120,7 @@ namespace QuickFiles.Views
         /// <summary>
         /// Display the user's pictures folder contents
         /// </summary>
-        private void PICTRUES(object sender, RoutedEventArgs e)
+        private void PICTURES(object sender, RoutedEventArgs e)
         {
             inputFilePathBox.Text = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Pictures";
             BROWSE(sender, e);
